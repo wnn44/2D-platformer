@@ -10,17 +10,30 @@ public class Player : MonoBehaviour
     private PlayerType _player;
     private Rigidbody2D _playerRigidbody;
     private float _radiusCheckGround = 0.1f;
-    private SpriteRenderer _sprite;
+    private SpriteRenderer _playerSprite;
 
-    private void Awake()
+    private Animator _animation;
+
+    private States _states
+    {
+        get { return (States)_animation.GetInteger("State"); }
+        set { _animation.SetInteger("State", (int)value); }
+    }
+
+    private void Start()
     {
         _player = GetComponent<PlayerType>();
         _playerRigidbody = transform.GetComponent<Rigidbody2D>();
-        _sprite = GetComponentInChildren<SpriteRenderer>();
+        _playerSprite = _player.GetComponentInChildren<SpriteRenderer>();
+
+        _animation = _player.GetComponent<Animator>();
+
     }
 
     private void Update()
     {
+        if (CheckGround()) _states = States.Idle;
+
         if (Input.GetButton("Horizontal"))
         {
             Run();
@@ -34,7 +47,8 @@ public class Player : MonoBehaviour
 
     private void Jump()
     {
-        _playerRigidbody.velocity = Vector2.up * _jampForce;
+        _states = States.Jump;
+        _playerRigidbody.velocity = Vector2.up * _jampForce;        
     }
 
     private bool CheckGround()
@@ -46,10 +60,25 @@ public class Player : MonoBehaviour
 
     private void Run()
     {
+        if (CheckGround()) _states = States.Run;
+
         Vector3 direction = transform.right * Input.GetAxis("Horizontal");
 
         transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, _speedMove * Time.deltaTime);
 
-        _sprite.flipX = direction.x < 0.0f;
+        _playerSprite.flipX = direction.x < 0.0f;
+
+        _animation.SetInteger("State", 1);
     }
 }
+
+public enum States
+{
+    Idle,
+    Run,
+    Jump
+}
+
+
+
+
