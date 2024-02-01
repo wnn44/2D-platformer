@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -27,12 +25,14 @@ public class Player : MonoBehaviour
         _playerSprite = _player.GetComponentInChildren<SpriteRenderer>();
 
         _animation = _player.GetComponent<Animator>();
-
     }
 
     private void Update()
     {
-        if (CheckGround()) _states = States.Idle;
+        if (CheckGround())
+        {
+            _states = States.Idle;
+        }
 
         if (Input.GetButton("Horizontal"))
         {
@@ -48,7 +48,23 @@ public class Player : MonoBehaviour
     private void Jump()
     {
         _states = States.Jump;
-        _playerRigidbody.velocity = Vector2.up * _jampForce;        
+        _playerRigidbody.velocity = Vector2.up * _jampForce;
+    }
+
+    private void Run()
+    {
+        Vector3 direction;
+
+        if (CheckGround())
+        {
+            _states = States.Run;
+        }
+
+        direction = transform.right * Input.GetAxis("Horizontal");
+
+        transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, _speedMove * Time.deltaTime);
+
+        _playerSprite.flipX = direction.x < 0.0f;
     }
 
     private bool CheckGround()
@@ -56,19 +72,6 @@ public class Player : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _radiusCheckGround);
 
         return colliders.Length > 1;
-    }
-
-    private void Run()
-    {
-        if (CheckGround()) _states = States.Run;
-
-        Vector3 direction = transform.right * Input.GetAxis("Horizontal");
-
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, _speedMove * Time.deltaTime);
-
-        _playerSprite.flipX = direction.x < 0.0f;
-
-        _animation.SetInteger("State", 1);
     }
 }
 
