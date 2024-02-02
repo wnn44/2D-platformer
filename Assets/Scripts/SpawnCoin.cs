@@ -6,6 +6,16 @@ public class SpawnCoin : MonoBehaviour
     [SerializeField] private List<GameObject> _spawnPoints = new List<GameObject>();
     [SerializeField] private GameObject _prefabCoin;
 
+    private void OnEnable()
+    {
+        Coin.FoundCoin += Spawn;
+    }
+
+    private void OnDisble()
+    {
+        Coin.FoundCoin -= Spawn;
+    }
+
     private void Start()
     {
         Spawn();
