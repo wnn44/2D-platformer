@@ -32,12 +32,14 @@ public class Enemy : MonoBehaviour
 
     private bool CheckGround()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position + _direction * 0.4f, Vector3.down, 1, _platformLayer);
+        float offset = 0.4f;
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + _direction * offset, Vector3.down, 1, _platformLayer);
         RaycastHit2D hit1 = Physics2D.Raycast(transform.position + _direction, Vector3.left, 0, _platformLayer);
 
         _isGrounded = (hit.collider != null && hit1.collider == null );
 
-        //Debug.DrawRay(transform.position + _direction * 0.4f, Vector3.down);
+        //Debug.DrawRay(transform.position + _direction * offset, Vector3.down);
 
         return _isGrounded;
     }

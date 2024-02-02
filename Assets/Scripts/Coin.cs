@@ -4,10 +4,13 @@ public class Coin : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        FindObjectOfType<Wallet>().AddOne();
+        if (collision.gameObject.name == "Hero")
+        {
+            FindObjectOfType<Wallet>().AddOne();
 
-        Destroy(gameObject);
+            Destroy(gameObject);
 
-        FindObjectOfType<SpawnCoin>();
+            FindObjectOfType<SpawnCoin>().Spawn();
+        }
     }
 }

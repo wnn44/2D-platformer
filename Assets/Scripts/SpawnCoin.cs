@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,7 +11,7 @@ public class SpawnCoin : MonoBehaviour
         Spawn();
     }
 
-    private void Spawn()
+    public void Spawn()
     {
         int numberSpawner = UnityEngine.Random.Range(0, _spawnPoints.Count);
 
