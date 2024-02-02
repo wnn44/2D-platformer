@@ -7,5 +7,7 @@ public class Coin : MonoBehaviour
         FindObjectOfType<Wallet>().AddOne();
 
         Destroy(gameObject);
+
+        FindObjectOfType<SpawnCoin>();
     }
 }
