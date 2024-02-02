@@ -7,7 +7,7 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "Hero")
+        if (collision.GetComponent<PlayerType>() != null)
         {
             FoundCoin?.Invoke();
 

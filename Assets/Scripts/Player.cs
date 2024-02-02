@@ -5,6 +5,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float _speedMove;
     [SerializeField] private float _jampForce;
 
+    const string NameParametrAnimation = "State";
+
     private PlayerType _player;
     private Rigidbody2D _playerRigidbody;
     private float _radiusCheckGround = 0.1f;
@@ -14,8 +16,8 @@ public class Player : MonoBehaviour
 
     private States _states
     {
-        get { return (States)_animation.GetInteger("State"); }
-        set { _animation.SetInteger("State", (int)value); }
+        get { return (States)_animation.GetInteger(NameParametrAnimation); }
+        set { _animation.SetInteger(NameParametrAnimation, (int)value); }
     }
 
     private void Start()
