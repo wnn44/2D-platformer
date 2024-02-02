@@ -1,10 +1,11 @@
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class SpawnCoin : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _spawnPoints = new List<GameObject>();
-    [SerializeField] private GameObject _prefabCoin;
+    [SerializeField] private CoinType _prefabCoin;
 
     private void OnEnable()
     {

@@ -158,7 +158,7 @@ MonoBehaviour:
   - {fileID: 1271662092}
   - {fileID: 602133285}
   - {fileID: 1470570130}
-  _prefabCoin: {fileID: 4855643474730940182, guid: f08685a9e4aae894098c23003b0f8b48, type: 3}
+  _prefabCoin: {fileID: 9159199641583167439, guid: f08685a9e4aae894098c23003b0f8b48, type: 3}
 --- !u!4 &106812253
 Transform:
   m_ObjectHideFlags: 0

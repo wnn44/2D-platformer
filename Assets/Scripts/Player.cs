@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float _jampForce;
 
     const string NameParametrAnimation = "State";
+    const string NameAxesHorizontal = "Horizontal";
+    const string NameAxesJump = "Jump";
 
     private PlayerType _player;
     private Rigidbody2D _playerRigidbody;
@@ -36,12 +38,12 @@ public class Player : MonoBehaviour
             _states = States.Idle;
         }
 
-        if (Input.GetButton("Horizontal"))
+        if (Input.GetButton(NameAxesHorizontal))
         {
             Run();
         }
 
-        if (CheckGround() && Input.GetButtonDown("Jump"))
+        if (CheckGround() && Input.GetButtonDown(NameAxesJump))
         {
             Jump();
         }
@@ -62,7 +64,7 @@ public class Player : MonoBehaviour
             _states = States.Run;
         }
 
-        direction = transform.right * Input.GetAxis("Horizontal");
+        direction = transform.right * Input.GetAxis(NameAxesHorizontal);
 
         transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, _speedMove * Time.deltaTime);
 
