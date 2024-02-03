@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class SpawnCoin : MonoBehaviour
@@ -9,12 +8,12 @@ public class SpawnCoin : MonoBehaviour
 
     private void OnEnable()
     {
-        Coin.FoundCoin += Spawn;
+        Coin.CoinFound += Spawn;
     }
 
     private void OnDisble()
     {
-        Coin.FoundCoin -= Spawn;
+        Coin.CoinFound -= Spawn;
     }
 
     private void Start()

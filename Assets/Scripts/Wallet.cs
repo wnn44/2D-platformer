@@ -2,16 +2,16 @@ using UnityEngine;
 
 public class Wallet : MonoBehaviour
 {
-    [SerializeField] int _numberOfCoins;
+    [SerializeField] private int _numberOfCoins;
 
     private void OnEnable()
     {
-        Coin.FoundCoin += AddOne;
+        Coin.CoinFound += AddOne;
     }
 
     private void OnDisble()
     {
-        Coin.FoundCoin -= AddOne;
+        Coin.CoinFound -= AddOne;
     }
 
     public void AddOne()

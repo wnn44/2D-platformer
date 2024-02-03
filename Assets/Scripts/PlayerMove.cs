@@ -1,41 +1,41 @@
+using System;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+[RequireComponent(typeof(PlayerType))]
+[RequireComponent(typeof(Rigidbody2D))]
+
+public class PlayerMove : MonoBehaviour
 {
     [SerializeField] private float _speedMove;
     [SerializeField] private float _jampForce;
 
-    const string NameParametrAnimation = "State";
     const string NameAxesHorizontal = "Horizontal";
     const string NameAxesJump = "Jump";
+
+    const int IdleState = 0;
+    const int RunState = 1;
+    const int JumpState = 2;
+
+    public static event Action<int> StateValue;
 
     private PlayerType _player;
     private Rigidbody2D _playerRigidbody;
     private float _radiusCheckGround = 0.1f;
     private SpriteRenderer _playerSprite;
 
-    private Animator _animation;
-
-    private States _states
-    {
-        get { return (States)_animation.GetInteger(NameParametrAnimation); }
-        set { _animation.SetInteger(NameParametrAnimation, (int)value); }
-    }
-
     private void Start()
     {
         _player = GetComponent<PlayerType>();
         _playerRigidbody = transform.GetComponent<Rigidbody2D>();
-        _playerSprite = _player.GetComponentInChildren<SpriteRenderer>();
 
-        _animation = _player.GetComponent<Animator>();
+        _playerSprite = _player.GetComponentInChildren<SpriteRenderer>();
     }
 
     private void Update()
     {
         if (CheckGround())
         {
-            _states = States.Idle;
+            StateValue?.Invoke(IdleState);
         }
 
         if (Input.GetButton(NameAxesHorizontal))
@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
 
     private void Jump()
     {
-        _states = States.Jump;
+        StateValue?.Invoke(JumpState);
         _playerRigidbody.velocity = Vector2.up * _jampForce;
     }
 
@@ -59,10 +59,7 @@ public class Player : MonoBehaviour
     {
         Vector3 direction;
 
-        if (CheckGround())
-        {
-            _states = States.Run;
-        }
+        StateValue?.Invoke(RunState);
 
         direction = transform.right * Input.GetAxis(NameAxesHorizontal);
 
@@ -78,14 +75,6 @@ public class Player : MonoBehaviour
         return colliders.Length > 1;
     }
 }
-
-public enum States
-{
-    Idle,
-    Run,
-    Jump
-}
-
 
 
 
