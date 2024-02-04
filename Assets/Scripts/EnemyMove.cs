@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class EnemyMove : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private LayerMask _platformLayer;
@@ -17,10 +17,10 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        MovePlayer();
+        MoveEnemy();
     }
 
-    private void MovePlayer()
+    private void MoveEnemy()
     {
         if (!CheckGround())
         {
