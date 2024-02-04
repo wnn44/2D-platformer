@@ -1,5 +1,7 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
+
 public class PlayerAnimations : MonoBehaviour
 {
     const string NameParametrAnimation = "State";
