@@ -196,6 +196,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3655790206342517661, guid: 23c0dceb502325440a10fc080a302263, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4616987315289735149, guid: 23c0dceb502325440a10fc080a302263, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 1091376163}
     - target: {fileID: 5209764317677118748, guid: 23c0dceb502325440a10fc080a302263, type: 3}
       propertyPath: _player
       value: 
@@ -238,6 +246,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6393573582671162271, guid: 23c0dceb502325440a10fc080a302263, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100604786207437989, guid: 23c0dceb502325440a10fc080a302263, type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1122,6 +1134,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3655790206342517661, guid: 23c0dceb502325440a10fc080a302263, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4616987315289735149, guid: 23c0dceb502325440a10fc080a302263, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 1091376163}
     - target: {fileID: 5209764317677118748, guid: 23c0dceb502325440a10fc080a302263, type: 3}
       propertyPath: _player
       value: 
@@ -1164,6 +1184,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6393573582671162271, guid: 23c0dceb502325440a10fc080a302263, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100604786207437989, guid: 23c0dceb502325440a10fc080a302263, type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1563,7 +1587,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.04, y: -1.3379065}
+  m_Offset: {x: -1.0185452, y: -1.3379065}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1574,7 +1598,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.0347123, y: 0.67581344}
+  m_Size: {x: 5.991802, y: 0.67581344}
   m_EdgeRadius: 0
 --- !u!50 &1382854327
 Rigidbody2D:
