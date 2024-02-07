@@ -192,6 +192,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1058352276}
     m_Modifications:
+    - target: {fileID: 113258674081497303, guid: 23c0dceb502325440a10fc080a302263, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3655790206342517661, guid: 23c0dceb502325440a10fc080a302263, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -246,6 +250,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6393573582671162271, guid: 23c0dceb502325440a10fc080a302263, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7052474371019094407, guid: 23c0dceb502325440a10fc080a302263, type: 3}
+      propertyPath: m_Size.x
+      value: 0.48449832
+      objectReference: {fileID: 0}
+    - target: {fileID: 7052474371019094407, guid: 23c0dceb502325440a10fc080a302263, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0014171079
+      objectReference: {fileID: 0}
+    - target: {fileID: 7052474371019094407, guid: 23c0dceb502325440a10fc080a302263, type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9100604786207437989, guid: 23c0dceb502325440a10fc080a302263, type: 3}
@@ -1122,6 +1138,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &850900878 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3189180320802108611, guid: 23c0dceb502325440a10fc080a302263, type: 3}
+  m_PrefabInstance: {fileID: 189319938}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a8a802078c5060418a1f36ec04e6e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &944321984
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1130,6 +1157,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1058352276}
     m_Modifications:
+    - target: {fileID: 113258674081497303, guid: 23c0dceb502325440a10fc080a302263, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3655790206342517661, guid: 23c0dceb502325440a10fc080a302263, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
@@ -1184,6 +1215,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6393573582671162271, guid: 23c0dceb502325440a10fc080a302263, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7052474371019094407, guid: 23c0dceb502325440a10fc080a302263, type: 3}
+      propertyPath: m_Size.x
+      value: 0.53128946
+      objectReference: {fileID: 0}
+    - target: {fileID: 7052474371019094407, guid: 23c0dceb502325440a10fc080a302263, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.1311563
+      objectReference: {fileID: 0}
+    - target: {fileID: 7052474371019094407, guid: 23c0dceb502325440a10fc080a302263, type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9100604786207437989, guid: 23c0dceb502325440a10fc080a302263, type: 3}
@@ -1243,6 +1286,7 @@ GameObject:
   - component: {fileID: 1091376165}
   - component: {fileID: 1091376166}
   - component: {fileID: 1091376167}
+  - component: {fileID: 1091376168}
   m_Layer: 6
   m_Name: Hero
   m_TagString: Untagged
@@ -1325,8 +1369,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.018737078, y: 0.5790774}
-  m_Size: {x: 0.95709014, y: 1.1429373}
+  m_Offset: {x: 0.008025169, y: 0.5790774}
+  m_Size: {x: 0.46434426, y: 1.1429373}
   m_Direction: 0
 --- !u!114 &1091376163
 MonoBehaviour:
@@ -1387,6 +1431,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 023c8c337a33a534bb1be9369dc303c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1091376168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091376155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2f3774e1c7b3f944ad85a7253b65547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemy: {fileID: 850900878}
 --- !u!1 &1264211761
 GameObject:
   m_ObjectHideFlags: 0

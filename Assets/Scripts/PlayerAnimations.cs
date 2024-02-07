@@ -5,10 +5,11 @@ using UnityEngine;
 public class PlayerAnimations : MonoBehaviour
 {
     const string NameParametrAnimation = "State";
-    
+
     const int IdleState = 0;
     const int RunState = 1;
     const int JumpState = 2;
+    const int AttackState = 3;
 
     private Animator _animation;
 
@@ -20,11 +21,14 @@ public class PlayerAnimations : MonoBehaviour
 
     private void OnEnable()
     {
+        Conflict.StateValue += SetStates;
         PlayerMove.StateValue += SetStates;
+
     }
 
     private void OnDisable()
     {
+        Conflict.StateValue -= SetStates;
         PlayerMove.StateValue -= SetStates;
     }
 
@@ -46,13 +50,18 @@ public class PlayerAnimations : MonoBehaviour
             case JumpState:
                 _states = States.Jump;
                 break;
+            case AttackState:
+                Debug.Log("Attack");
+                _states = States.Attack;
+                break;
         }
     }
 }
 
-    public enum States
-    {
-        Idle,
-        Run,
-        Jump
-    }
+public enum States
+{
+    Idle,
+    Run,
+    Jump,
+    Attack
+}

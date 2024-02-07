@@ -17,7 +17,6 @@ public class PlayerDetection : MonoBehaviour
     private void Update()
     {
             PlayerDetected?.Invoke(DetectionPlayer());
-
     }
 
     private bool DetectionPlayer()
