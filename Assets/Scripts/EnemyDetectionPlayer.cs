@@ -1,11 +1,11 @@
 using System;
 using UnityEngine;
 
-public class PlayerDetection : MonoBehaviour
+public class EnemyDetectionPlayer : MonoBehaviour
 {
     [SerializeField] private PlayerType _player;
 
-    public static event Action<bool> PlayerDetected;
+    public static event Action<bool> Detected;
 
     private SpriteRenderer _enemySprite;
 
@@ -16,10 +16,10 @@ public class PlayerDetection : MonoBehaviour
 
     private void Update()
     {
-            PlayerDetected?.Invoke(DetectionPlayer());
+            Detected?.Invoke(Detection());
     }
 
-    private bool DetectionPlayer()
+    private bool Detection()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position + Vector3.up * 0.5f, _player.transform.position + Vector3.up * 0.5f - transform.position);
         Debug.DrawRay(transform.position + Vector3.up * 0.5f, _player.transform.position + Vector3.up * 0.5f - transform.position, Color.red);

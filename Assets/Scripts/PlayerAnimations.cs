@@ -21,14 +21,11 @@ public class PlayerAnimations : MonoBehaviour
 
     private void OnEnable()
     {
-        Conflict.StateValue += SetStates;
         PlayerMove.StateValue += SetStates;
-
     }
 
     private void OnDisable()
     {
-        Conflict.StateValue -= SetStates;
         PlayerMove.StateValue -= SetStates;
     }
 

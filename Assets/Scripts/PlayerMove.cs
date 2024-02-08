@@ -16,6 +16,7 @@ public class PlayerMove : MonoBehaviour
     const int IdleState = 0;
     const int RunState = 1;
     const int JumpState = 2;
+    const int AttackState = 3;
 
     public static event Action<int> StateValue;
 
@@ -47,6 +48,11 @@ public class PlayerMove : MonoBehaviour
         if (CheckGround() && Input.GetButtonDown(NameAxesJump))
         {
             Jump();
+        }
+
+        if (Input.GetKey(KeyCode.Q))
+        {
+            StateValue?.Invoke(AttackState);
         }
     }
 
