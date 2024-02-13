@@ -16,7 +16,7 @@ public class EnemyDetectionPlayer : MonoBehaviour
 
     private void Update()
     {
-            Detected?.Invoke(Detection());
+        Detected?.Invoke(Detection());
     }
 
     private bool Detection()

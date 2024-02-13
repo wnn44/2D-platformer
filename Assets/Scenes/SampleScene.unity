@@ -230,10 +230,14 @@ PrefabInstance:
       objectReference: {fileID: 1091376163}
     - target: {fileID: -4639463167219541514, guid: 23c0dceb502325440a10fc080a302263, type: 3}
       propertyPath: HitEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4639463167219541514, guid: 23c0dceb502325440a10fc080a302263, type: 3}
       propertyPath: HitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4639463167219541514, guid: 23c0dceb502325440a10fc080a302263, type: 3}
+      propertyPath: HitEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4639463167219541514, guid: 23c0dceb502325440a10fc080a302263, type: 3}
@@ -241,7 +245,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 666679747}
     - target: {fileID: -4639463167219541514, guid: 23c0dceb502325440a10fc080a302263, type: 3}
+      propertyPath: HitEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1091376169}
+    - target: {fileID: -4639463167219541514, guid: 23c0dceb502325440a10fc080a302263, type: 3}
       propertyPath: HitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4639463167219541514, guid: 23c0dceb502325440a10fc080a302263, type: 3}
+      propertyPath: HitEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4639463167219541514, guid: 23c0dceb502325440a10fc080a302263, type: 3}
@@ -249,11 +261,23 @@ PrefabInstance:
       value: Attack
       objectReference: {fileID: 0}
     - target: {fileID: -4639463167219541514, guid: 23c0dceb502325440a10fc080a302263, type: 3}
+      propertyPath: HitEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Damage
+      objectReference: {fileID: 0}
+    - target: {fileID: -4639463167219541514, guid: 23c0dceb502325440a10fc080a302263, type: 3}
       propertyPath: HitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: EnemyAnimations, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: -4639463167219541514, guid: 23c0dceb502325440a10fc080a302263, type: 3}
+      propertyPath: HitEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: PlayerHealth, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: -4639463167219541514, guid: 23c0dceb502325440a10fc080a302263, type: 3}
       propertyPath: HitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: -4639463167219541514, guid: 23c0dceb502325440a10fc080a302263, type: 3}
+      propertyPath: HitEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 113258674081497303, guid: 23c0dceb502325440a10fc080a302263, type: 3}
@@ -1319,10 +1343,14 @@ PrefabInstance:
       objectReference: {fileID: 1091376163}
     - target: {fileID: -4639463167219541514, guid: 23c0dceb502325440a10fc080a302263, type: 3}
       propertyPath: HitEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4639463167219541514, guid: 23c0dceb502325440a10fc080a302263, type: 3}
       propertyPath: HitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4639463167219541514, guid: 23c0dceb502325440a10fc080a302263, type: 3}
+      propertyPath: HitEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4639463167219541514, guid: 23c0dceb502325440a10fc080a302263, type: 3}
@@ -1330,7 +1358,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1979794259}
     - target: {fileID: -4639463167219541514, guid: 23c0dceb502325440a10fc080a302263, type: 3}
+      propertyPath: HitEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1091376169}
+    - target: {fileID: -4639463167219541514, guid: 23c0dceb502325440a10fc080a302263, type: 3}
       propertyPath: HitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4639463167219541514, guid: 23c0dceb502325440a10fc080a302263, type: 3}
+      propertyPath: HitEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4639463167219541514, guid: 23c0dceb502325440a10fc080a302263, type: 3}
@@ -1338,11 +1374,23 @@ PrefabInstance:
       value: Attack
       objectReference: {fileID: 0}
     - target: {fileID: -4639463167219541514, guid: 23c0dceb502325440a10fc080a302263, type: 3}
+      propertyPath: HitEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Damage
+      objectReference: {fileID: 0}
+    - target: {fileID: -4639463167219541514, guid: 23c0dceb502325440a10fc080a302263, type: 3}
       propertyPath: HitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: EnemyAnimations, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: -4639463167219541514, guid: 23c0dceb502325440a10fc080a302263, type: 3}
+      propertyPath: HitEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: PlayerHealth, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: -4639463167219541514, guid: 23c0dceb502325440a10fc080a302263, type: 3}
       propertyPath: HitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: -4639463167219541514, guid: 23c0dceb502325440a10fc080a302263, type: 3}
+      propertyPath: HitEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 113258674081497303, guid: 23c0dceb502325440a10fc080a302263, type: 3}
@@ -1677,7 +1725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2bb82e881ef614790090132d8f6d34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 0
+  _health: 100
 --- !u!1 &1264211761
 GameObject:
   m_ObjectHideFlags: 0

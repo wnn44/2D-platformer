@@ -6,23 +6,28 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnEnable()
     {
-        KitHealth.KitHealthFound += Add;
+        KitHealth.KitHealthFound += Heal;
     }
 
     private void OnDisble()
     {
-        KitHealth.KitHealthFound -= Add;
+        KitHealth.KitHealthFound -= Heal;
     }
 
-    public void Add(int healValue)
+    public void Heal(int healValue)
     {
         if (_health < 100)
         {
             _health += healValue;
         }
+
+        if (_health > 100)
+        {
+            _health = 100;
+        }
     }
 
-    public void Decrease()
+    public void Damage()
     {
         if (_health != 0)
         {
