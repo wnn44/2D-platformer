@@ -281,8 +281,16 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 113258674081497303, guid: 23c0dceb502325440a10fc080a302263, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 113258674081497303, guid: 23c0dceb502325440a10fc080a302263, type: 3}
       propertyPath: m_Constraints
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 113258674081497303, guid: 23c0dceb502325440a10fc080a302263, type: 3}
+      propertyPath: m_UseAutoMass
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1817342232255136256, guid: 23c0dceb502325440a10fc080a302263, type: 3}
       propertyPath: m_LocalScale.x
@@ -1394,6 +1402,10 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 113258674081497303, guid: 23c0dceb502325440a10fc080a302263, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 113258674081497303, guid: 23c0dceb502325440a10fc080a302263, type: 3}
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
@@ -1415,7 +1427,7 @@ PrefabInstance:
       objectReference: {fileID: 1091376163}
     - target: {fileID: 6393573582671162271, guid: 23c0dceb502325440a10fc080a302263, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.4296236
+      value: 3.61
       objectReference: {fileID: 0}
     - target: {fileID: 6393573582671162271, guid: 23c0dceb502325440a10fc080a302263, type: 3}
       propertyPath: m_LocalPosition.y

@@ -6,7 +6,7 @@ public class EnemyMove : MonoBehaviour
     [SerializeField] private LayerMask _platformLayer;
     [SerializeField] private PlayerType _player;
 
-    public Vector3 Direction { get; private set;}
+    public Vector3 Direction { get; private set; }
 
 
     private bool _isEndOfRoad;
@@ -28,11 +28,14 @@ public class EnemyMove : MonoBehaviour
     private bool CheckingEndOfPath()
     {
         float offset = 0.3f;
+        float distanceDown = 1f;
+        float distanceHorizont = 0.5f;
+        
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + Direction * offset, Vector3.down, distanceDown, _platformLayer);
+        RaycastHit2D hitRight = Physics2D.Raycast(transform.position, Vector3.right, distanceHorizont, _platformLayer);
+        RaycastHit2D hitLeft = Physics2D.Raycast(transform.position, Vector3.left, distanceHorizont, _platformLayer);
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position + Direction * offset, Vector3.down, 1f, _platformLayer);
-        RaycastHit2D hit1 = Physics2D.Raycast(transform.position + Direction, Vector3.left, 0f, _platformLayer);
-
-        _isEndOfRoad = (hit.collider != null && hit1.collider == null);
+        _isEndOfRoad = (hit.collider != null && hitRight.collider == null && hitLeft.collider == null);
 
         return _isEndOfRoad;
     }
@@ -55,8 +58,9 @@ public class EnemyMove : MonoBehaviour
 
     private void DetectionPlayer()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position + Vector3.up * 0.5f, _player.transform.position + Vector3.up * 0.5f - transform.position);
-        //Debug.DrawRay(transform.position + Vector3.up * 0.5f, _player.transform.position + Vector3.up * 0.5f - transform.position, Color.red);
+        float coordinateOffset = 0.5f;
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + Vector3.up * coordinateOffset, _player.transform.position + Vector3.up * coordinateOffset - transform.position);
 
         if (hit.collider != null && hit.collider.gameObject == _player.gameObject)
         {

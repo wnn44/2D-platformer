@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class EnemyAnimations : MonoBehaviour
 {
     const string NameParametrAnimation = "State";
