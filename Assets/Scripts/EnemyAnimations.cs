@@ -3,9 +3,9 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class EnemyAnimations : MonoBehaviour
 {
-    const string NameParametrAnimation = "State";
-    const int RunState = 0;
-    const int AttackState = 1;
+    private const string NameParametrAnimation = "State";
+    private const int RunState = 0;
+    private const int AttackState = 1;
 
     private Animator _animation;
 

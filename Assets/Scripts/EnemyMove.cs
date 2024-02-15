@@ -52,7 +52,9 @@ public class EnemyMove : MonoBehaviour
 
     private void ChangeDirection()
     {
-        Direction *= -1.0f;
+        int reverseDirection = -1;
+
+        Direction *= reverseDirection;
         _enemySprite.flipX = Direction.x < 0;
     }
 
