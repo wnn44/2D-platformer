@@ -3,35 +3,19 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private int _health;
+    [SerializeField] private int _maxHealth = 100;
+    [SerializeField] private int _minHealth = 0;
+    [SerializeField] private int _healValue = 20;
 
-    private void OnEnable()
+    public void Heal()
     {
-        KitHealth.KitHealthFound += Heal;
-    }
-
-    private void OnDisble()
-    {
-        KitHealth.KitHealthFound -= Heal;
-    }
-
-    public void Heal(int healValue)
-    {
-        if (_health < 100)
-        {
-            _health += healValue;
-        }
-
-        if (_health > 100)
-        {
-            _health = 100;
-        }
+        _health += _healValue;
+        _health = Mathf.Clamp(_health, _minHealth, _maxHealth);
     }
 
     public void Damage()
     {
-        if (_health != 0)
-        {
-            _health--;
-        }
+        _health--;
+        _health = Mathf.Clamp(_health, _minHealth, _maxHealth);
     }
 }

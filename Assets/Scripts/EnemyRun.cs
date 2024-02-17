@@ -7,7 +7,7 @@ public class EnemyRun : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<PlayerType>())
+        if (collision.gameObject.GetComponent<Player>())
         {
             HitEvent?.Invoke();
         }

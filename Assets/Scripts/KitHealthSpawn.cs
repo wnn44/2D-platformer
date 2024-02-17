@@ -5,7 +5,7 @@ using UnityEngine;
 public class KitHealthSpawn : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _spawnKitHealth = new List<GameObject>();
-    [SerializeField] private KitHealthType _prefabKitHealth;
+    [SerializeField] private KitHealth _prefabKitHealth;
 
     private int maxTimeSpawn = 20;
     private int minTimeSpawn = 10;
@@ -13,16 +13,6 @@ public class KitHealthSpawn : MonoBehaviour
     private void Start()
     {
         Spawn();
-    }
-
-    private void OnEnable()
-    {
-        KitHealth.KitHealthAdd += Spawn;
-    }
-
-    private void OnDisble()
-    {
-        KitHealth.KitHealthAdd -= Spawn;
     }
 
     public void Spawn()

@@ -4,18 +4,15 @@ public class EnemyMove : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private LayerMask _platformLayer;
-    [SerializeField] private PlayerType _player;
+    [SerializeField] private Player _player;
 
     public Vector3 Direction { get; private set; }
 
-
-    private bool _isEndOfRoad;
-    private SpriteRenderer _enemySprite;
+    private float _angleRotationY = 180;
 
     private void Start()
     {
         Direction = transform.right;
-        _enemySprite = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void Update()
@@ -29,15 +26,18 @@ public class EnemyMove : MonoBehaviour
     {
         float offset = 0.3f;
         float distanceDown = 1f;
-        float distanceHorizont = 0.5f;
-        
+
         RaycastHit2D hit = Physics2D.Raycast(transform.position + Direction * offset, Vector3.down, distanceDown, _platformLayer);
-        RaycastHit2D hitRight = Physics2D.Raycast(transform.position, Vector3.right, distanceHorizont, _platformLayer);
-        RaycastHit2D hitLeft = Physics2D.Raycast(transform.position, Vector3.left, distanceHorizont, _platformLayer);
 
-        _isEndOfRoad = (hit.collider != null && hitRight.collider == null && hitLeft.collider == null);
+        return (hit.collider != null);
+    }
 
-        return _isEndOfRoad;
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.TryGetComponent(out TileMap tileMap))
+        {
+            ChangeDirection();
+        }
     }
 
     private void Move()
@@ -53,21 +53,26 @@ public class EnemyMove : MonoBehaviour
     private void ChangeDirection()
     {
         int reverseDirection = -1;
-
         Direction *= reverseDirection;
-        _enemySprite.flipX = Direction.x < 0;
+
+        transform.Rotate(0, _angleRotationY, 0);
     }
 
     private void DetectionPlayer()
     {
         float coordinateOffset = 0.5f;
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position + Vector3.up * coordinateOffset, _player.transform.position + Vector3.up * coordinateOffset - transform.position);
+        Vector2 origin = transform.position + Vector3.up * coordinateOffset;
+        Vector2 direction = _player.transform.position + Vector3.up * coordinateOffset - transform.position;
+
+        RaycastHit2D hit = Physics2D.Raycast(origin, direction);
 
         if (hit.collider != null && hit.collider.gameObject == _player.gameObject)
         {
-            if (transform.position.x < (_player.transform.position).x && _enemySprite.flipX) ChangeDirection();
-            if (transform.position.x > (_player.transform.position).x && !_enemySprite.flipX) ChangeDirection();
+            float angleRotationY = Mathf.Round(transform.rotation.eulerAngles.y);
+
+            if (transform.position.x < (_player.transform.position).x && angleRotationY == _angleRotationY) ChangeDirection();
+            if (transform.position.x > (_player.transform.position).x && angleRotationY == 0) ChangeDirection();
         }
     }
 }

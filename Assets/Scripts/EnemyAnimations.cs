@@ -16,11 +16,11 @@ public class EnemyAnimations : MonoBehaviour
 
     public void Attack()
     {
-        _animation.SetInteger(NameParametrAnimation, (int)AttackState);
+        _animation.SetInteger(NameParametrAnimation, AttackState);
     }
 
     public void Run()
     {
-        _animation.SetInteger(NameParametrAnimation, (int)RunState);
+        _animation.SetInteger(NameParametrAnimation, RunState);
     }
 }

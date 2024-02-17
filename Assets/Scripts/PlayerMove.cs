@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerType))]
+[RequireComponent(typeof(Player))]
 [RequireComponent(typeof(Rigidbody2D))]
 
 public class PlayerMove : MonoBehaviour
@@ -19,14 +19,14 @@ public class PlayerMove : MonoBehaviour
 
     public static event Action<int> StateValue;
 
-    private PlayerType _player;
+    private Player _player;
     private Rigidbody2D _playerRigidbody;
     private float _radiusCheckGround = 0.1f;
     private SpriteRenderer _playerSprite;
 
     private void Start()
     {
-        _player = GetComponent<PlayerType>();
+        _player = GetComponent<Player>();
         _playerRigidbody = transform.GetComponent<Rigidbody2D>();
 
         _playerSprite = _player.GetComponentInChildren<SpriteRenderer>();

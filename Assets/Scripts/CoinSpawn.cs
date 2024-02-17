@@ -4,17 +4,7 @@ using UnityEngine;
 public class CoinSpawn : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _spawnPoints = new List<GameObject>();
-    [SerializeField] private CoinType _prefabCoin;
-
-    private void OnEnable()
-    {
-        Coin.CoinFound += Spawn;
-    }
-
-    private void OnDisble()
-    {
-        Coin.CoinFound -= Spawn;
-    }
+    [SerializeField] private Coin _prefabCoin;
 
     private void Start()
     {

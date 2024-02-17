@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7558799001889201101}
   - component: {fileID: 6084229507406878315}
-  - component: {fileID: 84963443210685078}
   - component: {fileID: 253418732699684971}
   m_Layer: 0
   m_Name: Medicines
@@ -80,34 +79,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5572462, y: 0.6934781}
   m_EdgeRadius: 0
---- !u!114 &84963443210685078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3600407756659312160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 869d0c8d9e14e9f4f99fbb3388815722, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _healValue: 20
-  KitHealthAdd:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 253418732699684971}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &253418732699684971
 MonoBehaviour:
   m_ObjectHideFlags: 0
