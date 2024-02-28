@@ -13,9 +13,9 @@ public class PlayerAnimations : MonoBehaviour
 
     private Animator _animation;
 
-    private State _state
+    private State1 _state
     {
-        get { return (State)_animation.GetInteger(NameParametrAnimation); }
+        get { return (State1)_animation.GetInteger(NameParametrAnimation); }
         set { _animation.SetInteger(NameParametrAnimation, (int)value); }
     }
 
@@ -39,22 +39,22 @@ public class PlayerAnimations : MonoBehaviour
         switch (stateValue)
         {
             case IdleState:
-                _state = State.Idle;
+                _state = State1.Idle;
                 break;
             case RunState:
-                _state = State.Run;
+                _state = State1.Run;
                 break;
             case JumpState:
-                _state = State.Jump;
+                _state = State1.Jump;
                 break;
             case AttackState:
-                _state = State.Attack;
+                _state = State1.Attack;
                 break;
         }
     }
 }
 
-public enum State
+public enum State1
 {
     Idle,
     Run,
