@@ -1,16 +1,20 @@
 
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Character : MonoBehaviour
 {
     [SerializeField] private float _speedMove;
     [SerializeField] private float _jampForce;
+    [SerializeField] private CharacterView _view;
 
     const string NameAxesHorizontal = "Horizontal";
     const string NameAxesJump = "Jump";
 
     private Rigidbody2D _playerRigidbody;
     private StateMachine _stateMachine;
+
+    public CharacterView View => _view;
 
     public Character(float speedMove, float jampForce, Rigidbody2D playerRigidbody, StateMachine stateMachine)
     {
@@ -22,12 +26,14 @@ public class Character : MonoBehaviour
 
     private void Awake()
     {
-        _stateMachine = new StateMachine();        
+        _stateMachine = new StateMachine();
     }
 
     private void Update()
     {
         _stateMachine.Update();
+
+        Move();
 
         //if (Input.GetKeyUp(KeyCode.R))
         //    _stateMachine.SwitchState<RunningState>();
@@ -38,29 +44,34 @@ public class Character : MonoBehaviour
         //if (Input.GetKeyUp(KeyCode.J))
         //    _stateMachine.SwitchState<JumpingState>();
 
-        Vector3 velocity;
-        float direction;
 
-        direction = Input.GetAxis(NameAxesHorizontal);
-        velocity = transform.right * direction;
 
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + velocity, _speedMove * Time.deltaTime);
-        transform.rotation = GetRotationFrom(direction);
 
     }
 
-    private Quaternion GetRotationFrom(float direction)
+    private void Move()
     {
-        if(direction > 0)
-        {
-            return new Quaternion(0, 0, 0, 0);
-        }
+        Vector3 direction;
+        float angleRotationY = 180f;
 
-        if (direction < 0)
-        {
-            return Quaternion.Euler(0,180,0);
-        }
+        direction = transform.right * Input.GetAxis(NameAxesHorizontal);
 
-        return transform.rotation;
+        if (direction.x < 0.0f)
+        {
+            transform.Rotate(0, angleRotationY, 0);
+            transform.Translate(_speedMove * Time.deltaTime, 0, 0);
+            
+        }
+        else if (direction.x > 0.0f)
+        {
+            transform.Rotate(0, 0, 0);
+            transform.Translate(_speedMove * Time.deltaTime, 0, 0);
+            
+        }
+        else
+        {
+            _stateMachine.SwitchState<IdlingState>();
+        }
     }
+
 }

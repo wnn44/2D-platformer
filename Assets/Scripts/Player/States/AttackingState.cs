@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class AttackingState : MovementState
 {
-    public AttackingState(Character character) : base(character)
+    public AttackingState(IStateSwitcher stateSwitcher, Character character) : base(stateSwitcher, character)
     {
     }
 

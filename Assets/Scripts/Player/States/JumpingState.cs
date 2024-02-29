@@ -6,7 +6,7 @@ using UnityEngine;
 public class JumpingState : MovementState
 {
 
-    public JumpingState(Character character) : base(character)
+    public JumpingState(IStateSwitcher stateSwitcher, Character character) : base(stateSwitcher, character)
     {
     }
 

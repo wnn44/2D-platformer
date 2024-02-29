@@ -4,25 +4,29 @@ using UnityEngine;
 
 public class RunningState : MovementState
 {
-    public RunningState(Character character) : base(character)
+    public RunningState(IStateSwitcher stateSwitcher, Character character) : base(stateSwitcher, character)
     {
     }
+
+    const string NameAxesHorizontal = "Horizontal";
 
     public override void Enter()
     {
         base.Enter();
-        //Debug.Log("Running  - Enter");
+        View.StartRunning();
     }
 
     public override void Exit()
     {
         base.Exit();
-        //Debug.Log("Running  - Exit");
+        View.StopRunning();
     }
 
     public override void Update()
     {
         base.Update();
-        //Debug.Log("Running  - Update");
+
+        if (Input.GetAxis(NameAxesHorizontal) == 0)
+            StateSwitcher.SwitchState<IdlingState>();
     }
 }
