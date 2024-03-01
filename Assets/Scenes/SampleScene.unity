@@ -1316,7 +1316,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1091376155}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 3776c08dddd52f94fb59ae05d0d5fd44, type: 2}
   m_CullingMode: 0
@@ -1350,7 +1350,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1091376155}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 023c8c337a33a534bb1be9369dc303c3, type: 3}
   m_Name: 
@@ -2141,6 +2141,7 @@ GameObject:
   - component: {fileID: 1929371133}
   - component: {fileID: 1929371132}
   - component: {fileID: 1929371134}
+  - component: {fileID: 1929371135}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -2231,6 +2232,27 @@ MonoBehaviour:
   _speedMove: 3
   _jampForce: 3
   _view: {fileID: 0}
+--- !u!95 &1929371135
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929371130}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1979794259 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2826873814608349913, guid: 23c0dceb502325440a10fc080a302263, type: 3}
