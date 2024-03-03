@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class IdlingState : MovementState
 {
-    public IdlingState(IStateSwitcher stateSwitcher, Character character) : base(stateSwitcher, character)
+    public IdlingState(IStateSwitcher stateSwitcher, PlayerMove playerMove) : base(stateSwitcher, playerMove)
     {
     }
 
-    const string NameAxesHorizontal = "Horizontal";
+    //const string NameAxesHorizontal = "Horizontal";
     
     public override void Enter()
     {
@@ -20,11 +20,11 @@ public class IdlingState : MovementState
         View.StopIdling();
     }
 
-    public override void Update()
-    {
-        base.Update();
+    //public override void Update()
+    //{
+    //    base.Update();
 
-        if(Input.GetAxis(NameAxesHorizontal) != 0)
-            StateSwitcher.SwitchState<RunningState>();
-    }
+    //    //if(Input.GetAxis(NameAxesHorizontal) != 0)
+    //    //    StateSwitcher.SwitchState<RunningState>();
+    //}
 }

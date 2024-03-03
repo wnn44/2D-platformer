@@ -5,30 +5,30 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 public class MovementState : IState
 {
     protected readonly IStateSwitcher StateSwitcher;
-    private readonly Character _character;
-    protected Vector3 Velocity;
-    protected CharacterView View => _character.View;
+    private readonly PlayerMove _playerMove;   
+    
+    
 
-    public MovementState(IStateSwitcher stateSwitcher, Character character)
+    public MovementState(IStateSwitcher stateSwitcher, PlayerMove playerMove)
     {
         StateSwitcher = stateSwitcher;
-        _character = character;
+        _playerMove = playerMove;
     }
+
+    protected CharacterView View => _playerMove.View;
 
     public virtual void Enter()
     {
         Debug.Log(GetType());
+       // View.StartIdling();
     }
 
     public virtual void Exit()
     {
-
+        //View.StopIdling();
     }
 
     public virtual void Update()
     {
-
-
-
     }
 }

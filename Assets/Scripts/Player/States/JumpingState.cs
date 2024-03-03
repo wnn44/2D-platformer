@@ -6,7 +6,7 @@ using UnityEngine;
 public class JumpingState : MovementState
 {
 
-    public JumpingState(IStateSwitcher stateSwitcher, Character character) : base(stateSwitcher, character)
+    public JumpingState(IStateSwitcher stateSwitcher, PlayerMove playerMove) : base(stateSwitcher, playerMove)
     {
     }
 
@@ -14,14 +14,15 @@ public class JumpingState : MovementState
     {
         base.Enter();
         //Debug.Log("Jumping  - Enter");        
-    
-        
+        View.StartJumping();
+
         //playerRigidbody.velocity = Vector2.up * _jampForce;
     }
 
     public override void Exit()
     {
         base.Exit();
+        View.StopJumping();
         //Debug.Log("Jumping  - Exit");
     }
 

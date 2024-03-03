@@ -14,6 +14,11 @@ public class CharacterView : MonoBehaviour
 
     public void Initialize() => _animator = GetComponent<Animator>();
 
+    private void Start()
+    {
+        _animator = GetComponent<Animator>();
+    }
+
     public void StartIdling() => _animator.SetBool(IsIdling, true);
     public void StopIdling() => _animator.SetBool(IsIdling, false);
 

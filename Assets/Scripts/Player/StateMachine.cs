@@ -1,33 +1,32 @@
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 public class StateMachine: IStateSwitcher
 {
     private List<IState> _states;  
     private IState _currentState;
 
-    private Character _character;
-
-    public StateMachine()
+    public StateMachine(PlayerMove playerMove)
     {
         _states = new List<IState>() 
         {
-            new IdlingState(this, _character),
-            new RunningState(this, _character),
-            new JumpingState(this, _character),
-            new AttackingState(this, _character),
+            new IdlingState(this, playerMove),
+            new RunningState(this, playerMove),
+            new JumpingState(this, playerMove),
+            new AttackingState(this, playerMove),
         };
 
-        _currentState = _states[0];
+        _currentState = _states[0];        
         _currentState.Enter();
     }
 
     public void SwitchState<State>() where State : IState
     {
-        IState newState = _states.FirstOrDefault(state => state is State);
+        IState state = _states.FirstOrDefault(state => state is State);
 
         _currentState.Exit();
-        _currentState = newState;
+        _currentState = state;
         _currentState.Enter();
     }
 

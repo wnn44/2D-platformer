@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class AttackingState : MovementState
 {
-    public AttackingState(IStateSwitcher stateSwitcher, Character character) : base(stateSwitcher, character)
+    public AttackingState(IStateSwitcher stateSwitcher, PlayerMove playerMove) : base(stateSwitcher, playerMove)
     {
     }
 
@@ -11,11 +11,13 @@ public class AttackingState : MovementState
     {
         base.Enter();
         //Debug.Log("Attacking  - Enter");
+        View.StartAttacking();
     }
 
     public override void Exit()
     {
         base.Exit();
+        View.StopAttacking();
         //Debug.Log("Attacking  - Exit");
     }
 

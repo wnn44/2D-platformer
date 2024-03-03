@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class RunningState : MovementState
 {
-    public RunningState(IStateSwitcher stateSwitcher, Character character) : base(stateSwitcher, character)
+    public RunningState(IStateSwitcher stateSwitcher, PlayerMove playerMove) : base(stateSwitcher, playerMove)
     {
     }
 
-    const string NameAxesHorizontal = "Horizontal";
+    //const string NameAxesHorizontal = "Horizontal";
 
     public override void Enter()
     {
         base.Enter();
-        View.StartRunning();
+        View.StartRunning();        
     }
 
     public override void Exit()
@@ -26,7 +26,7 @@ public class RunningState : MovementState
     {
         base.Update();
 
-        if (Input.GetAxis(NameAxesHorizontal) == 0)
-            StateSwitcher.SwitchState<IdlingState>();
+        //if (Input.GetAxis(NameAxesHorizontal) == 0)
+        //    StateSwitcher.SwitchState<IdlingState>();
     }
 }

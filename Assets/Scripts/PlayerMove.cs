@@ -8,35 +8,40 @@ public class PlayerMove : MonoBehaviour
 {
     [SerializeField] private float _speedMove;
     [SerializeField] private float _jampForce;
+    [SerializeField] private CharacterView _view;
 
     const string NameAxesHorizontal = "Horizontal";
     const string NameAxesJump = "Jump";
-
-    const int IdleState = 0;
-    const int RunState = 1;
-    const int JumpState = 2;
-    const int AttackState = 3;
-
-    public static event Action<int> StateValue;
 
     private Player _player;
     private Rigidbody2D _playerRigidbody;
     private float _radiusCheckGround = 0.1f;
     private SpriteRenderer _playerSprite;
 
-    private void Start()
+    private StateMachine _stateMachine;
+
+    public CharacterView View => _view;
+
+    private void Awake()
     {
+        _view.Initialize();
+
         _player = GetComponent<Player>();
         _playerRigidbody = transform.GetComponent<Rigidbody2D>();
 
         _playerSprite = _player.GetComponentInChildren<SpriteRenderer>();
+
+        _stateMachine = new StateMachine(this);
+
     }
 
     private void Update()
     {
         if (CheckGround())
         {
-            StateValue?.Invoke(IdleState);
+            //StateValue?.Invoke(IdleState);
+            _stateMachine.SwitchState<IdlingState>();
+
         }
 
         if (Input.GetButton(NameAxesHorizontal))
@@ -51,13 +56,15 @@ public class PlayerMove : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Q))
         {
-            StateValue?.Invoke(AttackState);
+            //StateValue?.Invoke(AttackState);
+            _stateMachine.SwitchState<AttackingState>();
         }
     }
 
     private void Jump()
     {
-        StateValue?.Invoke(JumpState);
+        //StateValue?.Invoke(JumpState);
+        _stateMachine.SwitchState<JumpingState>();
         _playerRigidbody.velocity = Vector2.up * _jampForce;
     }
 
@@ -65,7 +72,8 @@ public class PlayerMove : MonoBehaviour
     {
         Vector3 direction;
 
-        StateValue?.Invoke(RunState);
+        //StateValue?.Invoke(RunState);
+        _stateMachine.SwitchState<RunningState>();
 
         direction = transform.right * Input.GetAxis(NameAxesHorizontal);
 
