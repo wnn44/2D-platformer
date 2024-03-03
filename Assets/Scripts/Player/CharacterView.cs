@@ -8,8 +8,6 @@ public class CharacterView : MonoBehaviour
     private const string IsJumping = "IsJumping";
     private const string IsAttacking = "IsAttacking";
 
-    //    private const string IsMovement = "IsMovement";
-
     private Animator _animator;
 
     public void Initialize() => _animator = GetComponent<Animator>();
@@ -30,7 +28,4 @@ public class CharacterView : MonoBehaviour
 
     public void StartAttacking() => _animator.SetBool(IsAttacking, true);
     public void StopAttacking() => _animator.SetBool(IsAttacking, false);
-
-    //public void StartMovement() => _animator.SetBool(IsMovement, true);
-    //public void StopMovement() => _animator.SetBool(IsMovement, false);
 }

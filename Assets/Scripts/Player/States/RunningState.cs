@@ -8,8 +8,6 @@ public class RunningState : MovementState
     {
     }
 
-    //const string NameAxesHorizontal = "Horizontal";
-
     public override void Enter()
     {
         base.Enter();
@@ -19,14 +17,14 @@ public class RunningState : MovementState
     public override void Exit()
     {
         base.Exit();
-        View.StopRunning();
+        View.StopRunning();        
     }
 
     public override void Update()
     {
         base.Update();
 
-        //if (Input.GetAxis(NameAxesHorizontal) == 0)
-        //    StateSwitcher.SwitchState<IdlingState>();
+        if (Input.GetAxis(NameAxesHorizontal) == 0)
+            StateSwitcher.SwitchState<IdlingState>();
     }
 }

@@ -10,17 +10,16 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float _jampForce;
     [SerializeField] private CharacterView _view;
 
-    const string NameAxesHorizontal = "Horizontal";
-    const string NameAxesJump = "Jump";
-
     private Player _player;
-    private Rigidbody2D _playerRigidbody;
-    private float _radiusCheckGround = 0.1f;
     private SpriteRenderer _playerSprite;
-
+    private Rigidbody2D _playerRigidbody;
     private StateMachine _stateMachine;
 
     public CharacterView View => _view;
+    public float Speed => _speedMove;
+    public float JampForce => _jampForce;
+    public Rigidbody2D Rigidbody => _playerRigidbody;
+    public SpriteRenderer PlayerSprite => _playerSprite;
 
     private void Awake()
     {
@@ -32,61 +31,11 @@ public class PlayerMove : MonoBehaviour
         _playerSprite = _player.GetComponentInChildren<SpriteRenderer>();
 
         _stateMachine = new StateMachine(this);
-
     }
 
     private void Update()
     {
-        if (CheckGround())
-        {
-            //StateValue?.Invoke(IdleState);
-            _stateMachine.SwitchState<IdlingState>();
-
-        }
-
-        if (Input.GetButton(NameAxesHorizontal))
-        {
-            Run();
-        }
-
-        if (CheckGround() && Input.GetButtonDown(NameAxesJump))
-        {
-            Jump();
-        }
-
-        if (Input.GetKey(KeyCode.Q))
-        {
-            //StateValue?.Invoke(AttackState);
-            _stateMachine.SwitchState<AttackingState>();
-        }
-    }
-
-    private void Jump()
-    {
-        //StateValue?.Invoke(JumpState);
-        _stateMachine.SwitchState<JumpingState>();
-        _playerRigidbody.velocity = Vector2.up * _jampForce;
-    }
-
-    private void Run()
-    {
-        Vector3 direction;
-
-        //StateValue?.Invoke(RunState);
-        _stateMachine.SwitchState<RunningState>();
-
-        direction = transform.right * Input.GetAxis(NameAxesHorizontal);
-
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, _speedMove * Time.deltaTime);
-
-        _playerSprite.flipX = direction.x < 0.0f;
-    }
-
-    private bool CheckGround()
-    {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _radiusCheckGround);
-
-        return colliders.Length > 1;
+        _stateMachine.Update();
     }
 }
 

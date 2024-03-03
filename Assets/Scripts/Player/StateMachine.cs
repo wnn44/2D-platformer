@@ -25,9 +25,9 @@ public class StateMachine: IStateSwitcher
     {
         IState state = _states.FirstOrDefault(state => state is State);
 
-        _currentState.Exit();
-        _currentState = state;
-        _currentState.Enter();
+            _currentState.Exit();
+            _currentState = state;
+            _currentState.Enter();
     }
 
     public void Update() => _currentState.Update();
