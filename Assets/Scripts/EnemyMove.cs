@@ -60,7 +60,7 @@ public class EnemyMove : MonoBehaviour
 
     private void DetectionPlayer()
     {
-        float coordinateOffset = 0.5f;
+        float coordinateOffset = 0f;
 
         Vector2 origin = transform.position + Vector3.up * coordinateOffset;
         Vector2 direction = _player.transform.position + Vector3.up * coordinateOffset - transform.position;

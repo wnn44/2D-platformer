@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RunningState : MovementState
 {
-    public RunningState(IStateSwitcher stateSwitcher, PlayerMove playerMove) : base(stateSwitcher, playerMove)
+    public RunningState(IStateSwitcher stateSwitcher, Player playerMove) : base(stateSwitcher, playerMove)
     {
     }
 

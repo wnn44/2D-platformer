@@ -22,8 +22,8 @@ public class KitHealthSpawn : MonoBehaviour
 
     IEnumerator CreateMedicines()
     {
-        int numberSpawner = UnityEngine.Random.Range(0, _spawnKitHealth.Count);
-        int timeSpawn = UnityEngine.Random.Range(minTimeSpawn, maxTimeSpawn);        
+        int numberSpawner = Random.Range(0, _spawnKitHealth.Count);
+        int timeSpawn = Random.Range(minTimeSpawn, maxTimeSpawn);        
         
         yield return new WaitForSeconds(timeSpawn);
 

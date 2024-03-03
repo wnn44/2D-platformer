@@ -7,10 +7,10 @@ public class MovementState : IState
     protected const string NameKeyAttack = "Fire1";
 
     protected readonly IStateSwitcher StateSwitcher;
-    private readonly PlayerMove _playerMove;
+    private readonly Player _playerMove;
     private float _radiusCheckGround = 0.1f;
 
-    public MovementState(IStateSwitcher stateSwitcher, PlayerMove playerMove)
+    public MovementState(IStateSwitcher stateSwitcher, Player playerMove)
     {
         StateSwitcher = stateSwitcher;
         _playerMove = playerMove;
@@ -20,7 +20,6 @@ public class MovementState : IState
 
     public virtual void Enter()
     {
-        Debug.Log(GetType());
     }
 
     public virtual void Exit()

@@ -13,8 +13,8 @@ public class CoinSpawn : MonoBehaviour
 
     public void Spawn()
     {
-        int numberSpawner = UnityEngine.Random.Range(0, _spawnPoints.Count);
-
+        int numberSpawner = Random.Range(0, _spawnPoints.Count);
+        Debug.Log(numberSpawner);
         GameObject spawnPoint = _spawnPoints[numberSpawner];
         Vector3 positionSpawnPoint = spawnPoint.gameObject.transform.position;
 

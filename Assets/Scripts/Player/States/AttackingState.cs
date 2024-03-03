@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class AttackingState : MovementState
 {
-    public AttackingState(IStateSwitcher stateSwitcher, PlayerMove playerMove) : base(stateSwitcher, playerMove)
+    public AttackingState(IStateSwitcher stateSwitcher, Player playerMove) : base(stateSwitcher, playerMove)
     {
     }
 

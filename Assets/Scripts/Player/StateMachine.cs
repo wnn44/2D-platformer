@@ -1,13 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
 public class StateMachine: IStateSwitcher
 {
     private List<IState> _states;  
     private IState _currentState;
 
-    public StateMachine(PlayerMove playerMove)
+    public StateMachine(Player playerMove)
     {
         _states = new List<IState>() 
         {

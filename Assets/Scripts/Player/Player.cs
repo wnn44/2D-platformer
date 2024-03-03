@@ -1,16 +1,13 @@
-using System;
 using UnityEngine;
 
-[RequireComponent(typeof(Player))]
 [RequireComponent(typeof(Rigidbody2D))]
 
-public class PlayerMove : MonoBehaviour
+public class Player : MonoBehaviour
 {
     [SerializeField] private float _speedMove;
     [SerializeField] private float _jampForce;
     [SerializeField] private CharacterView _view;
 
-    private Player _player;
     private SpriteRenderer _playerSprite;
     private Rigidbody2D _playerRigidbody;
     private StateMachine _stateMachine;
@@ -25,10 +22,9 @@ public class PlayerMove : MonoBehaviour
     {
         _view.Initialize();
 
-        _player = GetComponent<Player>();
         _playerRigidbody = transform.GetComponent<Rigidbody2D>();
 
-        _playerSprite = _player.GetComponentInChildren<SpriteRenderer>();
+        _playerSprite = GetComponentInChildren<SpriteRenderer>();
 
         _stateMachine = new StateMachine(this);
     }
