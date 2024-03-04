@@ -11,10 +11,22 @@ public class CoinSpawn : MonoBehaviour
         Spawn();
     }
 
-    public void Spawn()
+    private void OnEnable()
+    {
+        CollisionDetector.OnCollisionDetectedCoin += Spawn;
+    }
+
+    private void OnDisable()
+    {
+        CollisionDetector.OnCollisionDetectedCoin -= Spawn;
+    }
+
+    private void Spawn()
     {
         int numberSpawner = Random.Range(0, _spawnPoints.Count);
-        Debug.Log(numberSpawner);
+
+        Debug.Log(_spawnPoints.GetType());
+
         GameObject spawnPoint = _spawnPoints[numberSpawner];
         Vector3 positionSpawnPoint = spawnPoint.gameObject.transform.position;
 

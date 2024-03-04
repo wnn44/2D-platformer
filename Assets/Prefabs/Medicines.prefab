@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7558799001889201101}
   - component: {fileID: 6084229507406878315}
-  - component: {fileID: 253418732699684971}
+  - component: {fileID: 506673087505896760}
   m_Layer: 0
   m_Name: Medicines
   m_TagString: Untagged
@@ -79,7 +79,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5572462, y: 0.6934781}
   m_EdgeRadius: 0
---- !u!114 &253418732699684971
+--- !u!114 &506673087505896760
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

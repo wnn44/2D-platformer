@@ -24,7 +24,7 @@ public class AttackingState : MovementState
     {
         base.Update();
 
-        if (Input.GetButtonDown(NameKeyAttack) == false)
+        if (Input.GetButtonDown(KeyAttack) == false)
             StateSwitcher.SwitchState<IdlingState>();
     }
 }

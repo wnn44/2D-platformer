@@ -15,6 +15,16 @@ public class KitHealthSpawn : MonoBehaviour
         Spawn();
     }
 
+    private void OnEnable()
+    {
+        CollisionDetector.OnDestroyKitHealth += Spawn;
+    }
+
+    private void OnDisable()
+    {
+        CollisionDetector.OnDestroyKitHealth -= Spawn;
+    }
+
     public void Spawn()
     {
         StartCoroutine(CreateMedicines());

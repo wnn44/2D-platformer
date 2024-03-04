@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class MovementState : IState
 {
-    protected const string NameAxesHorizontal = "Horizontal";
-    protected const string NameAxesJump = "Jump";
-    protected const string NameKeyAttack = "Fire1";
+    protected const string AxesHorizontal = "Horizontal";
+    protected const string AxesJump = "Jump";
+    protected const string KeyAttack = "Fire1";
 
     protected readonly IStateSwitcher StateSwitcher;
     private readonly Player _playerMove;
@@ -34,17 +34,17 @@ public class MovementState : IState
             StateSwitcher.SwitchState<IdlingState>();
         }
 
-        if (Input.GetButton(NameAxesHorizontal))
+        if (Input.GetButton(AxesHorizontal))
         {
             Run();
         }
 
-        if (CheckGround() && Input.GetButtonDown(NameAxesJump))
+        if (CheckGround() && Input.GetButtonDown(AxesJump))
         {
             Jump();
         }
 
-        if (Input.GetButtonDown(NameKeyAttack))
+        if (Input.GetButtonDown(KeyAttack))
         {
             StateSwitcher.SwitchState<AttackingState>();
         }
@@ -62,7 +62,7 @@ public class MovementState : IState
 
         StateSwitcher.SwitchState<RunningState>();
 
-        direction = _playerMove.transform.right * Input.GetAxis(NameAxesHorizontal);
+        direction = _playerMove.transform.right * Input.GetAxis(AxesHorizontal);
 
         _playerMove.transform.position = Vector3.MoveTowards(_playerMove.transform.position, _playerMove.transform.position + direction, _playerMove.Speed * Time.deltaTime);
 

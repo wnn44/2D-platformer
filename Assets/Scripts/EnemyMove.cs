@@ -4,15 +4,18 @@ public class EnemyMove : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private LayerMask _platformLayer;
-    [SerializeField] private Player _player;
-
-    public Vector3 Direction { get; private set; }
+    
+    private Player _player;
 
     private float _angleRotationY = 180;
+
+    public Vector3 Direction { get; private set; }
 
     private void Start()
     {
         Direction = transform.right;
+
+        _player = Object.FindObjectOfType<Player>();
     }
 
     private void Update()

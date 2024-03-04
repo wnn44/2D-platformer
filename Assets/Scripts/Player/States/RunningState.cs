@@ -22,7 +22,7 @@ public class RunningState : MovementState
     {
         base.Update();
 
-        if (Input.GetAxis(NameAxesHorizontal) == 0)
+        if (Input.GetAxis(AxesHorizontal) == 0)
             StateSwitcher.SwitchState<IdlingState>();
     }
 }
