@@ -30,4 +30,6 @@ public class StateMachine: IStateSwitcher
     }
 
     public void Update() => _currentState.Update();
+
+    public void FixedUpdate() => _currentState.FixedUpdate();
 }

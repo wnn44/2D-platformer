@@ -23,8 +23,5 @@ public class AttackingState : MovementState
     public override void Update()
     {
         base.Update();
-
-        if (Input.GetButtonDown(KeyAttack) == false)
-            StateSwitcher.SwitchState<IdlingState>();
     }
 }

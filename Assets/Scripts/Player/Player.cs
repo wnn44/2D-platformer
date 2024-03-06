@@ -39,6 +39,11 @@ public class Player : MonoBehaviour
         _stateMachine.Update();
     }
 
+    private void FixedUpdate()
+    {
+        _stateMachine.FixedUpdate();
+    }
+
     private void OnEnable()
     {
         EnemyAttack.OnAttack += Damage;

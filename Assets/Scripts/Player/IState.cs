@@ -5,4 +5,6 @@ public interface IState
     void Exit();
 
     void Update();
+
+    void FixedUpdate();
 }

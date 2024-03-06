@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class MovementState : IState
 {
@@ -9,6 +10,11 @@ public class MovementState : IState
     protected readonly IStateSwitcher StateSwitcher;
     private readonly Player _playerMove;
     private float _radiusCheckGround = 0.1f;
+
+    private float _horizontalDirection;
+    private bool _horizontal;
+    private bool _jump;
+    private bool _attack;
 
     public MovementState(IStateSwitcher stateSwitcher, Player playerMove)
     {
@@ -28,26 +34,25 @@ public class MovementState : IState
 
     public virtual void Update()
     {
+        _horizontalDirection = Input.GetAxis(AxesHorizontal);
+        _horizontal = Input.GetButton(AxesHorizontal);
+        _jump = Input.GetButton(AxesJump);
+        _attack = Input.GetButton(KeyAttack);
+    }
 
+    public virtual void FixedUpdate()
+    {
         if (CheckGround())
-        {
             StateSwitcher.SwitchState<IdlingState>();
-        }
 
-        if (Input.GetButton(AxesHorizontal))
-        {
+        if (_horizontal)
             Run();
-        }
 
-        if (CheckGround() && Input.GetButtonDown(AxesJump))
-        {
+        if (CheckGround() && _jump)
             Jump();
-        }
 
-        if (Input.GetButtonDown(KeyAttack))
-        {
+        if (_attack && _horizontal == false)
             StateSwitcher.SwitchState<AttackingState>();
-        }
     }
 
     private void Jump()
@@ -62,7 +67,7 @@ public class MovementState : IState
 
         StateSwitcher.SwitchState<RunningState>();
 
-        direction = _playerMove.transform.right * Input.GetAxis(AxesHorizontal);
+        direction = _playerMove.transform.right * _horizontalDirection;
 
         _playerMove.transform.position = Vector3.MoveTowards(_playerMove.transform.position, _playerMove.transform.position + direction, _playerMove.Speed * Time.deltaTime);
 

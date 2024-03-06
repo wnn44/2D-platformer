@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class EnemyMove : MonoBehaviour
 {
-    [SerializeField] private float _speed;
+    [SerializeField] private float _baseSpeed;
     [SerializeField] private LayerMask _platformLayer;
-    
+
     private Player _player;
 
     private float _angleRotationY = 180;
+    private float _speed;
 
     public Vector3 Direction { get; private set; }
 
@@ -16,12 +17,16 @@ public class EnemyMove : MonoBehaviour
         Direction = transform.right;
 
         _player = Object.FindObjectOfType<Player>();
+        _speed = _baseSpeed;
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
     }
 
     private void Update()
     {
-        Move();
-
         DetectionPlayer();
     }
 
@@ -63,19 +68,38 @@ public class EnemyMove : MonoBehaviour
 
     private void DetectionPlayer()
     {
-        float coordinateOffset = 0f;
+        float coordinateOffset = 0.5f;
 
-        Vector2 origin = transform.position + Vector3.up * coordinateOffset;
+        Vector2 origin = transform.position;
         Vector2 direction = _player.transform.position + Vector3.up * coordinateOffset - transform.position;
 
         RaycastHit2D hit = Physics2D.Raycast(origin, direction);
+
+        Debug.DrawLine(origin, _player.transform.position + Vector3.up * coordinateOffset, Color.red);
 
         if (hit.collider != null && hit.collider.gameObject == _player.gameObject)
         {
             float angleRotationY = Mathf.Round(transform.rotation.eulerAngles.y);
 
-            if (transform.position.x < (_player.transform.position).x && angleRotationY == _angleRotationY) ChangeDirection();
-            if (transform.position.x > (_player.transform.position).x && angleRotationY == 0) ChangeDirection();
+            if (transform.position.x < (_player.transform.position).x && angleRotationY == _angleRotationY)
+            {
+                ChangeDirection();
+            }
+
+            if (transform.position.x > (_player.transform.position).x && angleRotationY == 0)
+            {
+                ChangeDirection();
+            }
         }
+    }
+
+    public void StopMove()
+    {
+        _speed = 0;
+    }
+
+    public void StartMove()
+    {
+        _speed = _baseSpeed;
     }
 }
