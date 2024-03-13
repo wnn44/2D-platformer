@@ -29,7 +29,7 @@ public class StateMachine: IStateSwitcher
             _currentState.Enter();
     }
 
-    public void Update() => _currentState.Update();
-
     public void FixedUpdate() => _currentState.FixedUpdate();
+
+    public void Update() => _currentState.Update();
 }

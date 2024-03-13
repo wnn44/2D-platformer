@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class KitHealthSpawn : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> _spawnKitHealth = new List<GameObject>();
+    [SerializeField] private List<PointSpawn> _spawnKitHealth = new List<PointSpawn>();
     [SerializeField] private KitHealth _prefabKitHealth;
 
     private int maxTimeSpawn = 20;
@@ -17,12 +17,24 @@ public class KitHealthSpawn : MonoBehaviour
 
     private void OnEnable()
     {
-        CollisionDetector.OnDestroyKitHealth += Spawn;
+        CollisionDetector.OnCollisionDetectedKitHealth += ActionKitHealth;
     }
 
     private void OnDisable()
     {
-        CollisionDetector.OnDestroyKitHealth -= Spawn;
+        CollisionDetector.OnCollisionDetectedKitHealth -= ActionKitHealth;
+    }
+
+    public void ActionKitHealth(KitHealth kitHealth)
+    {
+        DestroyKitHealth(kitHealth);
+
+        Spawn();
+    }
+
+    public void DestroyKitHealth(KitHealth kitHealth)
+    {
+        Destroy(kitHealth.gameObject);
     }
 
     public void Spawn()
@@ -33,12 +45,13 @@ public class KitHealthSpawn : MonoBehaviour
     IEnumerator CreateMedicines()
     {
         int numberSpawner = Random.Range(0, _spawnKitHealth.Count);
-        int timeSpawn = Random.Range(minTimeSpawn, maxTimeSpawn);        
-        
+        int timeSpawn = Random.Range(minTimeSpawn, maxTimeSpawn);
+
         yield return new WaitForSeconds(timeSpawn);
 
-        GameObject spawnPoint = _spawnKitHealth[numberSpawner];
-        Vector2 positionSpawnPoint = spawnPoint.gameObject.transform.position;
+        PointSpawn spawnPoint = _spawnKitHealth[numberSpawner];
+
+        Vector2 positionSpawnPoint = spawnPoint.transform.position;
 
         Instantiate(_prefabKitHealth, positionSpawnPoint, Quaternion.identity);
     }

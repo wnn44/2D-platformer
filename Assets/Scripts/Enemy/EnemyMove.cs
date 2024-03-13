@@ -6,7 +6,6 @@ public class EnemyMove : MonoBehaviour
     [SerializeField] private LayerMask _platformLayer;
 
     private Player _player;
-
     private float _angleRotationY = 180;
     private float _speed;
 
@@ -17,6 +16,7 @@ public class EnemyMove : MonoBehaviour
         Direction = transform.right;
 
         _player = Object.FindObjectOfType<Player>();
+
         _speed = _baseSpeed;
     }
 
@@ -28,6 +28,16 @@ public class EnemyMove : MonoBehaviour
     private void Update()
     {
         DetectionPlayer();
+    }
+
+    private void Move()
+    {
+        if (!CheckingEndOfPath())
+        {
+            ChangeDirection();
+        }
+
+        transform.position = Vector3.MoveTowards(transform.position, transform.position + Direction, _speed * Time.deltaTime);
     }
 
     private bool CheckingEndOfPath()
@@ -46,16 +56,6 @@ public class EnemyMove : MonoBehaviour
         {
             ChangeDirection();
         }
-    }
-
-    private void Move()
-    {
-        if (!CheckingEndOfPath())
-        {
-            ChangeDirection();
-        }
-
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + Direction, _speed * Time.deltaTime);
     }
 
     private void ChangeDirection()
@@ -95,7 +95,9 @@ public class EnemyMove : MonoBehaviour
 
     public void StopMove()
     {
-        _speed = 0;
+        float minSpeed = 0.01f;
+
+        _speed = minSpeed;
     }
 
     public void StartMove()

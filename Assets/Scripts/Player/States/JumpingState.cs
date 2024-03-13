@@ -1,6 +1,5 @@
 public class JumpingState : MovementState
 {
-
     public JumpingState(IStateSwitcher stateSwitcher, Player playerMove) : base(stateSwitcher, playerMove)
     {
     }

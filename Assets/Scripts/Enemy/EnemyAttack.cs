@@ -15,7 +15,7 @@ public class EnemyAttack : MonoBehaviour
     }
 
     private void OnTriggerStay2D(Collider2D collision)
-    {        
+    {
         if (collision.gameObject.GetComponent<Player>())
         {
             OnAttack?.Invoke();

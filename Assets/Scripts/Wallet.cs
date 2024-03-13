@@ -14,8 +14,11 @@ public class Wallet : MonoBehaviour
         CollisionDetector.OnCollisionDetectedCoin -= AddOne;
     }
 
-    public void AddOne()
+    public void AddOne(Coin coin)
     {
-        _numberOfCoins++;
+        if (coin != null)
+        {
+            _numberOfCoins++;
+        }
     }
 }

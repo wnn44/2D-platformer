@@ -1,26 +1,21 @@
 using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class CollisionDetector : MonoBehaviour
 {
-    public static event Action OnCollisionDetectedCoin;
-    public static event Action<int> OnCollisionDetectedKitHealth;
-    public static event Action OnDestroyKitHealth;
+    public static event Action<Coin> OnCollisionDetectedCoin;
+    public static event Action<KitHealth> OnCollisionDetectedKitHealth;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out Coin coin))
         {
-            OnCollisionDetectedCoin?.Invoke();
-            Destroy(coin.gameObject);
+            OnCollisionDetectedCoin?.Invoke(coin);
         }
 
         if (collision.TryGetComponent(out KitHealth kitHealth))
         {
-            OnCollisionDetectedKitHealth?.Invoke(kitHealth.HealValue);
-            Destroy(kitHealth.gameObject);
-            OnDestroyKitHealth?.Invoke();
+            OnCollisionDetectedKitHealth?.Invoke(kitHealth);
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private int _health = 100;
+    [SerializeField] private int _health;
     [SerializeField] private float _speedMove;
     [SerializeField] private float _jampForce;
     [SerializeField] private CharacterView _view;
@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D _playerRigidbody;
     private StateMachine _stateMachine;
     private PlayerHealth _playerHealth;
+    private int _damageEnemy;
 
     public CharacterView View => _view;
     public float Speed => _speedMove;
@@ -34,26 +35,36 @@ public class Player : MonoBehaviour
         _stateMachine = new StateMachine(this);
     }
 
-    private void Update()
-    {
-        _stateMachine.Update();
-    }
-
     private void FixedUpdate()
     {
         _stateMachine.FixedUpdate();
+    }
+
+    private void Update()
+    {
+        _stateMachine.Update();
     }
 
     private void OnEnable()
     {
         EnemyAttack.OnAttack += Damage;
         CollisionDetector.OnCollisionDetectedKitHealth += Heal;
+        PlayerHealth.PlayerHealthZero += HealthZero;
     }
 
     private void OnDisable()
     {
         EnemyAttack.OnAttack -= Damage;
         CollisionDetector.OnCollisionDetectedKitHealth -= Heal;
+        PlayerHealth.PlayerHealthZero -= HealthZero;
+    }
+
+    private void HealthZero()
+    {
+        float deathGravity = -0.02f;
+
+        gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+        Rigidbody.gravityScale = deathGravity;
     }
 
     private void Damage()
@@ -61,9 +72,26 @@ public class Player : MonoBehaviour
         _health = _playerHealth.Damage(_health);
     }
 
-    private void Heal(int healValue)
+    private void Heal(KitHealth healValue)
     {
-        _health = _playerHealth.Heal(_health, healValue);
+        _health = _playerHealth.Heal(_health, healValue.HealValue);
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<Enemy>())
+        {
+            Enemy enemy = GameObject.Find(collision.name).GetComponent<Enemy>();
+
+            enemy.Damage(_damageEnemy);
+
+            _damageEnemy = 0;
+        }
+    }
+
+    public void DamageEnemy(int damageEnemy)
+    {
+        _damageEnemy = damageEnemy;
     }
 }
 

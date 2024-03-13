@@ -15,7 +15,7 @@ public class EnemyAnimations : MonoBehaviour
     }
 
     public void Attack()
-    {
+    {        
         _animation.SetInteger(NameParametrAnimation, AttackState);
     }
 

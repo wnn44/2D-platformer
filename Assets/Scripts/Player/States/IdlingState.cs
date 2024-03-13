@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class IdlingState : MovementState
 {
     public IdlingState(IStateSwitcher stateSwitcher, Player playerMove) : base(stateSwitcher, playerMove)

@@ -1,9 +1,7 @@
 using UnityEngine;
-using UnityEngine.Events;
 
 public class EnemyRun : MonoBehaviour
 {
-    //public UnityEvent HitEvent;
     private EnemyAnimations _enemyAnimations;
     private EnemyMove _enemyMove;
 
@@ -17,8 +15,8 @@ public class EnemyRun : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Player>())
         {
-           // HitEvent?.Invoke();
-           _enemyAnimations.Run();
+            _enemyAnimations.Run();
+
             _enemyMove.StartMove();
         }
     }

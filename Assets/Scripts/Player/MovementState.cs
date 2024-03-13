@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 public class MovementState : IState
 {
@@ -10,6 +9,7 @@ public class MovementState : IState
     protected readonly IStateSwitcher StateSwitcher;
     private readonly Player _playerMove;
     private float _radiusCheckGround = 0.1f;
+    private int _damageEnemy = 20;
 
     private float _horizontalDirection;
     private bool _horizontal;
@@ -24,22 +24,6 @@ public class MovementState : IState
 
     protected CharacterView View => _playerMove.View;
 
-    public virtual void Enter()
-    {
-    }
-
-    public virtual void Exit()
-    {
-    }
-
-    public virtual void Update()
-    {
-        _horizontalDirection = Input.GetAxis(AxesHorizontal);
-        _horizontal = Input.GetButton(AxesHorizontal);
-        _jump = Input.GetButton(AxesJump);
-        _attack = Input.GetButton(KeyAttack);
-    }
-
     public virtual void FixedUpdate()
     {
         if (CheckGround())
@@ -52,7 +36,19 @@ public class MovementState : IState
             Jump();
 
         if (_attack && _horizontal == false)
+        {
             StateSwitcher.SwitchState<AttackingState>();
+
+            _playerMove.DamageEnemy(_damageEnemy);
+        }
+    }
+
+    public virtual void Update()
+    {
+        _horizontalDirection = Input.GetAxis(AxesHorizontal);
+        _horizontal = Input.GetButton(AxesHorizontal);
+        _jump = Input.GetButton(AxesJump);
+        _attack = Input.GetButton(KeyAttack);
     }
 
     private void Jump()
@@ -80,4 +76,8 @@ public class MovementState : IState
 
         return colliders.Length > 1;
     }
+
+    public virtual void Enter() { }
+
+    public virtual void Exit() { }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CoinSpawn : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> _spawnPoints = new List<GameObject>();
+    [SerializeField] private List<PointSpawn> _spawnPoints = new List<PointSpawn>();
     [SerializeField] private Coin _prefabCoin;
 
     private void Start()
@@ -13,23 +13,34 @@ public class CoinSpawn : MonoBehaviour
 
     private void OnEnable()
     {
-        CollisionDetector.OnCollisionDetectedCoin += Spawn;
+        CollisionDetector.OnCollisionDetectedCoin += ActionCoin;
     }
 
     private void OnDisable()
     {
-        CollisionDetector.OnCollisionDetectedCoin -= Spawn;
+        CollisionDetector.OnCollisionDetectedCoin -= ActionCoin;
+    }
+
+    private void ActionCoin(Coin coin)
+    {
+        DestroyCoin(coin);
+
+        Spawn();
     }
 
     private void Spawn()
     {
         int numberSpawner = Random.Range(0, _spawnPoints.Count);
 
-        Debug.Log(_spawnPoints.GetType());
+        PointSpawn spawnPoint = _spawnPoints[numberSpawner];
 
-        GameObject spawnPoint = _spawnPoints[numberSpawner];
-        Vector3 positionSpawnPoint = spawnPoint.gameObject.transform.position;
+        Vector3 positionSpawnPoint = spawnPoint.transform.position;
 
         Instantiate(_prefabCoin, positionSpawnPoint, Quaternion.identity);
+    }
+
+    private void DestroyCoin(Coin coin)
+    {
+        Destroy(coin.gameObject);
     }
 }

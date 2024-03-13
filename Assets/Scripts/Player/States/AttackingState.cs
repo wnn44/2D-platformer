@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class AttackingState : MovementState
 {
     public AttackingState(IStateSwitcher stateSwitcher, Player playerMove) : base(stateSwitcher, playerMove)
@@ -9,7 +7,7 @@ public class AttackingState : MovementState
     public override void Enter()
     {
         base.Enter();
-
+        
         View.StartAttacking();
     }
 
