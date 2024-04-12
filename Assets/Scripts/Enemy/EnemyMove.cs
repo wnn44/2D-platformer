@@ -4,6 +4,7 @@ public class EnemyMove : MonoBehaviour
 {
     [SerializeField] private float _baseSpeed;
     [SerializeField] private LayerMask _platformLayer;
+    [SerializeField] private GameObject _sprite;
 
     private Player _player;
     private float _angleRotationY = 180;
@@ -15,7 +16,7 @@ public class EnemyMove : MonoBehaviour
     {
         Direction = transform.right;
 
-        _player = Object.FindObjectOfType<Player>();
+        _player = GameObject.FindObjectOfType<Player>();
 
         _speed = _baseSpeed;
     }
@@ -63,7 +64,7 @@ public class EnemyMove : MonoBehaviour
         int reverseDirection = -1;
         Direction *= reverseDirection;
 
-        transform.Rotate(0, _angleRotationY, 0);
+        _sprite.transform.Rotate(0, _angleRotationY, 0);
     }
 
     private void DetectionPlayer()

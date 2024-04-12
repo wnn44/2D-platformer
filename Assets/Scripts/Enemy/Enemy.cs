@@ -2,31 +2,35 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private int _health = 1000;
-    [SerializeField] private int _maxHealth = 1000;
-    [SerializeField] private int _minHealth = 0;
-
     private Rigidbody2D _rigidbody;
+    private Health _enemyHealth;
 
-    private void Start()
+    private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _enemyHealth = GetComponent<Health>();
     }
 
-    private void Update()
+    private void OnEnable()
     {
-        if (_health <= 0)
-        {
-            float deathGravity = -0.02f;
+        _enemyHealth.HealthZero += HealthZero;
+    }
 
-            _rigidbody.gravityScale = deathGravity;
-        }
+    private void OnDisable()
+    {
+        _enemyHealth.HealthZero -= HealthZero;
+    }
+
+    private void HealthZero()
+    {
+        float deathGravity = -0.02f;
+
+        _rigidbody.gravityScale = deathGravity;
     }
 
     public void Damage(int damage)
     {
-        _health -= damage;
-        _health = Mathf.Clamp(_health, _minHealth, _maxHealth);
+        _enemyHealth.TakeDamage(damage);
 
         damage = 0;
     }
