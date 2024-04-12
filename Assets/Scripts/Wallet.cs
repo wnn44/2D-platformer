@@ -1,8 +1,10 @@
+using TMPro;
 using UnityEngine;
 
 public class Wallet : MonoBehaviour
 {
     [SerializeField] private int _numberOfCoins;
+    [SerializeField] private TextMeshProUGUI _textWalletView;
 
     private void OnEnable()
     {
@@ -20,5 +22,7 @@ public class Wallet : MonoBehaviour
         {
             _numberOfCoins++;
         }
+
+        _textWalletView.text = _numberOfCoins.ToString();
     }
 }

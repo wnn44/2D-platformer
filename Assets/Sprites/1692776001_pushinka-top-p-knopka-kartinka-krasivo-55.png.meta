@@ -1,0 +1,716 @@
+fileFormatVersion: 2
+guid: eb45c2130755ace4895aed0bc3916064
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_0
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 915
+        width: 412
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b6d26562d13a3549adaf82c04849211
+      internalID: 44099132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_1
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 906
+        width: 421
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62c1c8e63e6cb44409e890ef2ea28896
+      internalID: 212564487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_2
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 905
+        width: 421
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 776e72553e1f70249b1cb3f33d5fbf33
+      internalID: 1231055726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_3
+      rect:
+        serializedVersion: 2
+        x: 1462
+        y: 926
+        width: 421
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a4a597f7a34202469a3d9d6154b88c2
+      internalID: 1869933846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_4
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 751
+        width: 421
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6870d2c2de4c5b74495f7524f6b5ecd1
+      internalID: -2091387048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_5
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 747
+        width: 421
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 756ffaa33ee8bb94396dfca64f8b979a
+      internalID: 674416075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_6
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 753
+        width: 412
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: add6217bd83530d44b5b3fd2f4454fae
+      internalID: 63962932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_7
+      rect:
+        serializedVersion: 2
+        x: 1461
+        y: 790
+        width: 421
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cbc68a5b9170124aae3360f98e7396a
+      internalID: -1260913595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_8
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 576
+        width: 421
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 599640ece3857ff4fab25e1d5de5c0d0
+      internalID: -819995127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_9
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 577
+        width: 421
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93eca9737ce39dd4aa1cd8e2f47b6539
+      internalID: 1785558559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_10
+      rect:
+        serializedVersion: 2
+        x: 990
+        y: 576
+        width: 421
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52ce831d2e9d67e44afe8359a89dd2fe
+      internalID: 1489046189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_11
+      rect:
+        serializedVersion: 2
+        x: 1466
+        y: 642
+        width: 421
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8486f807b6437e14a830e0b399a41b29
+      internalID: -345078000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_12
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 400
+        width: 421
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52e1dc0beb3c466429433168848cfd2d
+      internalID: 942639493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_13
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 403
+        width: 421
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 524e0c0a4b7d9b64088dded6fb3dc790
+      internalID: -1317377118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_14
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 402
+        width: 421
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d9dc82f19701f2489eeaa99cd1cffbb
+      internalID: -265489666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_15
+      rect:
+        serializedVersion: 2
+        x: 1463
+        y: 492
+        width: 421
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d5e49f09c720894cae99a4c9e87b595
+      internalID: -975737255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_16
+      rect:
+        serializedVersion: 2
+        x: 1462
+        y: 348
+        width: 421
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79b8b8caa4b445b48addad8488dc08cf
+      internalID: 2000439049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_17
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 212
+        width: 421
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa995228725b5a0408899938d452fdc6
+      internalID: -1931526400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_18
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 212
+        width: 421
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 806b96873f40f1642af260821c79b92c
+      internalID: -217601384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_19
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 212
+        width: 421
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c143e73f55043124e94ae9387e7a5b9d
+      internalID: 719527896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_20
+      rect:
+        serializedVersion: 2
+        x: 1463
+        y: 192
+        width: 421
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fef327fe27475ba44b02b58746e0e040
+      internalID: 674979185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_21
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 41
+        width: 421
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3504fb8c18c69464984f681e864bc29b
+      internalID: 2010193955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_22
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 42
+        width: 421
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 410b6cfd2952de04ca701ac24432d5d4
+      internalID: -1501538866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_23
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 40
+        width: 421
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 121ee402965ea69429f85e950c6134f5
+      internalID: -1196027026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_24
+      rect:
+        serializedVersion: 2
+        x: 1467
+        y: 44
+        width: 421
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eff0c93fd51b2fb4d8d6a4d27b3c0b99
+      internalID: -656664451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_0: 44099132
+      1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_1: 212564487
+      1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_10: 1489046189
+      1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_11: -345078000
+      1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_12: 942639493
+      1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_13: -1317377118
+      1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_14: -265489666
+      1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_15: -975737255
+      1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_16: 2000439049
+      1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_17: -1931526400
+      1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_18: -217601384
+      1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_19: 719527896
+      1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_2: 1231055726
+      1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_20: 674979185
+      1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_21: 2010193955
+      1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_22: -1501538866
+      1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_23: -1196027026
+      1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_24: -656664451
+      1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_3: 1869933846
+      1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_4: -2091387048
+      1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_5: 674416075
+      1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_6: 63962932
+      1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_7: -1260913595
+      1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_8: -819995127
+      1692776001_pushinka-top-p-knopka-kartinka-krasivo-55_9: 1785558559
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
