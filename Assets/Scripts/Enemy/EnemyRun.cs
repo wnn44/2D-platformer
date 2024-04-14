@@ -1,5 +1,7 @@
 using UnityEngine;
 
+[RequireComponent(typeof(EnemyAnimations))]
+[RequireComponent(typeof(EnemyMove))]
 public class EnemyRun : MonoBehaviour
 {
     private EnemyAnimations _enemyAnimations;
@@ -13,7 +15,7 @@ public class EnemyRun : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<Player>())
+        if (collision.gameObject.TryGetComponent(out Player player))
         {
             _enemyAnimations.Run();
 

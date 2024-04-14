@@ -16,18 +16,20 @@ public class SliderBarSmooth : Bar
 
     public override void Display()
     {
-        StartCoroutine(wait());
+        StartCoroutine(barSmooth());
     }
 
-    IEnumerator wait()
-    {
+    private IEnumerator barSmooth()
+    {   
+        WaitForSeconds waitForSeconds = new WaitForSeconds(Time.deltaTime);
+
         _curentHealth = Health.CurentValue / Health.MaxValue;
 
         while (_slider.value != _curentHealth)
         {
-            yield return new WaitForSeconds(_maxDelta);
+            yield return waitForSeconds;
 
-            _slider.value = Mathf.MoveTowards(_slider.value, _curentHealth, _maxDelta);
+            _slider.value = Mathf.MoveTowards(_slider.value, _curentHealth, Time.deltaTime);
         }
     }
 }
