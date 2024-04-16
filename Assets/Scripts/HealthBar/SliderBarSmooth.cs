@@ -14,12 +14,7 @@ public class SliderBarSmooth : Bar
         Display();
     }
 
-    public override void Display()
-    {
-        StartCoroutine(barSmooth());
-    }
-
-    private IEnumerator barSmooth()
+    private IEnumerator _barSmooth()
     {   
         WaitForSeconds waitForSeconds = new WaitForSeconds(Time.deltaTime);
 
@@ -31,5 +26,10 @@ public class SliderBarSmooth : Bar
 
             _slider.value = Mathf.MoveTowards(_slider.value, _curentHealth, Time.deltaTime);
         }
+    }
+
+    public override void Display()
+    {
+        StartCoroutine(_barSmooth());
     }
 }

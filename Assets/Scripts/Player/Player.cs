@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _speedMove;
     [SerializeField] private float _jampForce;
     [SerializeField] private CharacterView _view;
+    [SerializeField] private CollisionDetector _collisionDetector;
 
     private SpriteRenderer _playerSprite;
     private Rigidbody2D _playerRigidbody;
@@ -46,15 +47,15 @@ public class Player : MonoBehaviour
     private void OnEnable()
     {
         EnemyAttack.OnAttack += Damage;
-        CollisionDetector.OnCollisionDetectedKitHealth += Heal;
-        _playerHealth.HealthZero += HealthZero;
+        _collisionDetector.OnCollisionDetectedKitHealth += Heal;
+        _playerHealth.Died += HealthZero;
     }
 
     private void OnDisable()
     {
         EnemyAttack.OnAttack -= Damage;
-        CollisionDetector.OnCollisionDetectedKitHealth -= Heal;
-        _playerHealth.HealthZero -= HealthZero;
+        _collisionDetector.OnCollisionDetectedKitHealth -= Heal;
+        _playerHealth.Died -= HealthZero;
     }
 
     private void HealthZero()
@@ -65,9 +66,9 @@ public class Player : MonoBehaviour
         Rigidbody.gravityScale = deathGravity;
     }
 
-    private void Damage()
+    private void Damage(int damage)
     {
-        _playerHealth.TakeDamage(1);
+        _playerHealth.TakeDamage(damage);
     }
 
     private void Heal(KitHealth healValue)

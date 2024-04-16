@@ -13,12 +13,12 @@ public class Enemy : MonoBehaviour
 
     private void OnEnable()
     {
-        _enemyHealth.HealthZero += HealthZero;
+        _enemyHealth.Died += HealthZero;
     }
 
     private void OnDisable()
     {
-        _enemyHealth.HealthZero -= HealthZero;
+        _enemyHealth.Died -= HealthZero;
     }
 
     private void HealthZero()

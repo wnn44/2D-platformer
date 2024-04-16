@@ -5,6 +5,7 @@ public class CoinSpawn : MonoBehaviour
 {
     [SerializeField] private List<PointSpawn> _spawnPoints = new List<PointSpawn>();
     [SerializeField] private Coin _prefabCoin;
+    [SerializeField] private CollisionDetector _collisionDetector;
 
     private void Start()
     {
@@ -13,12 +14,12 @@ public class CoinSpawn : MonoBehaviour
 
     private void OnEnable()
     {
-        CollisionDetector.OnCollisionDetectedCoin += ActionCoin;
+        _collisionDetector.OnCollisionDetectedCoin += ActionCoin;
     }
 
     private void OnDisable()
     {
-        CollisionDetector.OnCollisionDetectedCoin -= ActionCoin;
+        _collisionDetector.OnCollisionDetectedCoin -= ActionCoin;
     }
 
     private void ActionCoin(Coin coin)

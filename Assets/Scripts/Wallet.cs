@@ -5,15 +5,16 @@ public class Wallet : MonoBehaviour
 {
     [SerializeField] private int _numberOfCoins;
     [SerializeField] private TextMeshProUGUI _textWalletView;
+    [SerializeField] private CollisionDetector _collisionDetector;
 
     private void OnEnable()
     {
-        CollisionDetector.OnCollisionDetectedCoin += AddOne;
+        _collisionDetector.OnCollisionDetectedCoin += AddOne;
     }
 
     private void OnDisable()
     {
-        CollisionDetector.OnCollisionDetectedCoin -= AddOne;
+        _collisionDetector.OnCollisionDetectedCoin -= AddOne;
     }
 
     public void AddOne(Coin coin)

@@ -6,6 +6,7 @@ public class KitHealthSpawn : MonoBehaviour
 {
     [SerializeField] private List<PointSpawn> _spawnKitHealth = new List<PointSpawn>();
     [SerializeField] private KitHealth _prefabKitHealth;
+    [SerializeField] private CollisionDetector _collisionDetector;
 
     private int maxTimeSpawn = 20;
     private int minTimeSpawn = 10;
@@ -17,12 +18,12 @@ public class KitHealthSpawn : MonoBehaviour
 
     private void OnEnable()
     {
-        CollisionDetector.OnCollisionDetectedKitHealth += ActionKitHealth;
+        _collisionDetector.OnCollisionDetectedKitHealth += ActionKitHealth;
     }
 
     private void OnDisable()
     {
-        CollisionDetector.OnCollisionDetectedKitHealth -= ActionKitHealth;
+        _collisionDetector.OnCollisionDetectedKitHealth -= ActionKitHealth;
     }
 
     public void ActionKitHealth(KitHealth kitHealth)

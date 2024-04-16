@@ -7,7 +7,7 @@ public class Health : MonoBehaviour
     [SerializeField] private int _curentValue;
 
     public event Action Changed;
-    public event Action HealthZero;
+    public event Action Died;
 
     public float MaxValue => _maxValue;
     public float CurentValue => _curentValue;
@@ -20,7 +20,7 @@ public class Health : MonoBehaviour
         
         if (_curentValue == 0)
         {
-            HealthZero?.Invoke();
+            Died?.Invoke();
         }
     }
 

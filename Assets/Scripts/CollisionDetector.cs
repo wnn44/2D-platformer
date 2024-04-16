@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class CollisionDetector : MonoBehaviour
 {
-    public static event Action<Coin> OnCollisionDetectedCoin;
-    public static event Action<KitHealth> OnCollisionDetectedKitHealth;
+    public event Action<Coin> OnCollisionDetectedCoin;
+    public event Action<KitHealth> OnCollisionDetectedKitHealth;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    public static event Action OnAttack;
+    private int _damage = 1 ;
+
+    public static event Action<int> OnAttack;
 
     private EnemyAnimations _enemyAnimations;
     private EnemyMove _enemyMove;
@@ -18,7 +20,7 @@ public class EnemyAttack : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Player>())
         {
-            OnAttack?.Invoke();
+            OnAttack?.Invoke(_damage);
 
             _enemyAnimations.Attack();
 
