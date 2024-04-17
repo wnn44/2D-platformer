@@ -28,8 +28,8 @@ public class Player : MonoBehaviour
         _playerRigidbody = transform.GetComponent<Rigidbody2D>();
 
         _playerSprite = GetComponentInChildren<SpriteRenderer>();
-
-        _playerHealth = GetComponentInChildren<Health>();
+        
+        _playerHealth = GetComponent<Health>();
 
         _stateMachine = new StateMachine(this);
     }

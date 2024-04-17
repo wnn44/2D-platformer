@@ -7,6 +7,9 @@ public class CoinSpawn : MonoBehaviour
     [SerializeField] private Coin _prefabCoin;
     [SerializeField] private CollisionDetector _collisionDetector;
 
+    private int _oldNumberSpawner = 0;
+    private int _numberSpawner = 0;
+
     private void Start()
     {
         Spawn();
@@ -31,9 +34,14 @@ public class CoinSpawn : MonoBehaviour
 
     private void Spawn()
     {
-        int numberSpawner = Random.Range(0, _spawnPoints.Count);
+        while (_oldNumberSpawner == _numberSpawner)
+        {
+            _numberSpawner = Random.Range(0, _spawnPoints.Count);
+        }
 
-        PointSpawn spawnPoint = _spawnPoints[numberSpawner];
+        _oldNumberSpawner = _numberSpawner;
+
+        PointSpawn spawnPoint = _spawnPoints[_numberSpawner];
 
         Vector3 positionSpawnPoint = spawnPoint.transform.position;
 

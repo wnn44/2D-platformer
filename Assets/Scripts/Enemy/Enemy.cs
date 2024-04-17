@@ -31,7 +31,5 @@ public class Enemy : MonoBehaviour
     public void Damage(int damage)
     {
         _enemyHealth.TakeDamage(damage);
-
-        damage = 0;
     }
 }
