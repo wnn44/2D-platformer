@@ -6,7 +6,6 @@ public class EnemyMove : MonoBehaviour
     [SerializeField] private LayerMask _platformLayer;
     [SerializeField] private GameObject _sprite;
 
-    //private Player _player;
     private float _angleRotationY = 180;
     private float _speed;
 
@@ -16,19 +15,12 @@ public class EnemyMove : MonoBehaviour
     {
         Direction = transform.right;
 
-        //_player = GameObject.FindObjectOfType<Player>();
-
         _speed = _baseSpeed;
     }
 
     private void FixedUpdate()
     {
         Move();
-    }
-
-    private void Update()
-    {
-        //DetectionPlayer();
     }
 
     private void Move()
@@ -66,33 +58,6 @@ public class EnemyMove : MonoBehaviour
 
         _sprite.transform.Rotate(0, _angleRotationY, 0);
     }
-
-    //private void DetectionPlayer()
-    //{
-    //    float coordinateOffset = 0.5f;
-
-    //    Vector2 origin = transform.position;
-    //    Vector2 direction = _player.transform.position + Vector3.up * coordinateOffset - transform.position;
-
-    //    RaycastHit2D hit = Physics2D.Raycast(origin, direction);
-
-    //    Debug.DrawLine(origin, _player.transform.position + Vector3.up * coordinateOffset, Color.red);
-
-    //    if (hit.collider != null && hit.collider.gameObject == _player.gameObject)
-    //    {
-    //        float angleRotationY = Mathf.Round(transform.rotation.eulerAngles.y);
-
-    //        if (transform.position.x < (_player.transform.position).x && angleRotationY == _angleRotationY)
-    //        {
-    //            ChangeDirection();
-    //        }
-
-    //        if (transform.position.x > (_player.transform.position).x && angleRotationY == 0)
-    //        {
-    //            ChangeDirection();
-    //        }
-    //    }
-    //}
 
     public void StopMove()
     {
