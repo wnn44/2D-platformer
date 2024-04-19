@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D), typeof(Health))]
 
 public class Player : MonoBehaviour
 {
@@ -8,6 +8,13 @@ public class Player : MonoBehaviour
     [SerializeField] private float _jampForce;
     [SerializeField] private CharacterView _view;
     [SerializeField] private CollisionDetector _collisionDetector;
+    [SerializeField] private EnemyAttack _enemyAttack;
+
+    public CharacterView View => _view;
+    public float Speed => _speedMove;
+    public float JampForce => _jampForce;
+    public Rigidbody2D Rigidbody => _playerRigidbody;
+    public SpriteRenderer PlayerSprite => _playerSprite;
 
     private SpriteRenderer _playerSprite;
     private Rigidbody2D _playerRigidbody;
@@ -15,11 +22,10 @@ public class Player : MonoBehaviour
     private Health _playerHealth;
     private int _damageEnemy;
 
-    public CharacterView View => _view;
-    public float Speed => _speedMove;
-    public float JampForce => _jampForce;
-    public Rigidbody2D Rigidbody => _playerRigidbody;
-    public SpriteRenderer PlayerSprite => _playerSprite;
+    public void DamageEnemy(int damageEnemy)
+    {
+        _damageEnemy = damageEnemy;
+    }
 
     private void Awake()
     {
@@ -28,7 +34,7 @@ public class Player : MonoBehaviour
         _playerRigidbody = transform.GetComponent<Rigidbody2D>();
 
         _playerSprite = GetComponentInChildren<SpriteRenderer>();
-        
+
         _playerHealth = GetComponent<Health>();
 
         _stateMachine = new StateMachine(this);
@@ -46,14 +52,14 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
-        EnemyAttack.OnAttack += Damage;
+        _enemyAttack.OnAttack += Damage;
         _collisionDetector.OnCollisionDetectedKitHealth += Heal;
         _playerHealth.Died += HealthZero;
     }
 
     private void OnDisable()
     {
-        EnemyAttack.OnAttack -= Damage;
+        _enemyAttack.OnAttack -= Damage;
         _collisionDetector.OnCollisionDetectedKitHealth -= Heal;
         _playerHealth.Died -= HealthZero;
     }
@@ -86,11 +92,6 @@ public class Player : MonoBehaviour
 
             _damageEnemy = 0;
         }
-    }
-
-    public void DamageEnemy(int damageEnemy)
-    {
-        _damageEnemy = damageEnemy;
     }
 }
 

@@ -5,11 +5,24 @@ public class EnemyMove : MonoBehaviour
     [SerializeField] private float _baseSpeed;
     [SerializeField] private LayerMask _platformLayer;
     [SerializeField] private GameObject _sprite;
+    [SerializeField] private EnemyAttack _enemyAttack;
 
     private float _angleRotationY = 180;
     private float _speed;
 
     public Vector3 Direction { get; private set; }
+
+    public void StopMove()
+    {
+        float minSpeed = 0.01f;
+
+        _speed = minSpeed;
+    }
+
+    public void StartMove()
+    {
+        _speed = _baseSpeed;
+    }
 
     private void Start()
     {
@@ -59,15 +72,13 @@ public class EnemyMove : MonoBehaviour
         _sprite.transform.Rotate(0, _angleRotationY, 0);
     }
 
-    public void StopMove()
+    private void OnEnable()
     {
-        float minSpeed = 0.01f;
-
-        _speed = minSpeed;
+        _enemyAttack.OnCollision += StopMove;
     }
 
-    public void StartMove()
+    private void OnDisable()
     {
-        _speed = _baseSpeed;
+        _enemyAttack.OnCollision -= StopMove;
     }
 }

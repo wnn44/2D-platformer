@@ -1,19 +1,19 @@
 ﻿using System;
 using UnityEngine;
 
+[RequireComponent(typeof(EnemyAnimations))]
 public class EnemyAttack : MonoBehaviour
 {
     private int _damage = 1 ;
 
-    public static event Action<int> OnAttack;
+    public event Action<int> OnAttack;
+    public event Action OnCollision;
 
     private EnemyAnimations _enemyAnimations;
-    private EnemyMove _enemyMove;
 
     private void Start()
     {
         _enemyAnimations = GetComponent<EnemyAnimations>();
-        _enemyMove = GetComponent<EnemyMove>();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -24,7 +24,7 @@ public class EnemyAttack : MonoBehaviour
 
             _enemyAnimations.Attack();
 
-            _enemyMove.StopMove();
+            OnCollision?.Invoke();
         }
     }
 }

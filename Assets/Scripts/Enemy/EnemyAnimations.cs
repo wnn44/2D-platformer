@@ -9,18 +9,18 @@ public class EnemyAnimations : MonoBehaviour
 
     private Animator _animation;
 
-    private void Start()
-    {
-        _animation = GetComponent<Animator>();
-    }
-
     public void Attack()
-    {        
+    {
         _animation.SetInteger(NameParametrAnimation, AttackState);
     }
 
     public void Run()
     {
         _animation.SetInteger(NameParametrAnimation, RunState);
+    }
+
+    private void Start()
+    {
+        _animation = GetComponent<Animator>();
     }
 }

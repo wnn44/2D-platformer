@@ -11,21 +11,6 @@ public class KitHealthSpawn : MonoBehaviour
     private int maxTimeSpawn = 20;
     private int minTimeSpawn = 10;
 
-    private void Start()
-    {
-        Spawn();
-    }
-
-    private void OnEnable()
-    {
-        _collisionDetector.OnCollisionDetectedKitHealth += ActionKitHealth;
-    }
-
-    private void OnDisable()
-    {
-        _collisionDetector.OnCollisionDetectedKitHealth -= ActionKitHealth;
-    }
-
     public void ActionKitHealth(KitHealth kitHealth)
     {
         DestroyKitHealth(kitHealth);
@@ -43,7 +28,22 @@ public class KitHealthSpawn : MonoBehaviour
         StartCoroutine(CreateMedicines());
     }
 
-    IEnumerator CreateMedicines()
+    private void Start()
+    {
+        Spawn();
+    }
+
+    private void OnEnable()
+    {
+        _collisionDetector.OnCollisionDetectedKitHealth += ActionKitHealth;
+    }
+
+    private void OnDisable()
+    {
+        _collisionDetector.OnCollisionDetectedKitHealth -= ActionKitHealth;
+    }
+
+    private IEnumerator CreateMedicines()
     {
         int numberSpawner = Random.Range(0, _spawnKitHealth.Count);
         int timeSpawn = Random.Range(minTimeSpawn, maxTimeSpawn);

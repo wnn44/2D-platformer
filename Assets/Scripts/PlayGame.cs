@@ -4,11 +4,6 @@ public class PlayGame : MonoBehaviour
 {
     public GameObject Panel;
 
-    private void Awake()
-    {
-        Pause();
-    }
-
     public void Play()
     {
         Panel.SetActive(false);
@@ -19,5 +14,10 @@ public class PlayGame : MonoBehaviour
     {
         Panel.SetActive(true);
         Time.timeScale = 0f;
+    }
+
+    private void Awake()
+    {
+        Pause();
     }
 }

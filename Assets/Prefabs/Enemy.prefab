@@ -285,6 +285,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _sprite: {fileID: 9100604786207437989}
+  _enemyAttack: {fileID: -4639463167219541514}
 --- !u!61 &7052474371019094407
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -438,7 +439,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 1216635818830177762}
-  _maxDelta: 0.01
 --- !u!1 &4448225172381635694
 GameObject:
   m_ObjectHideFlags: 0

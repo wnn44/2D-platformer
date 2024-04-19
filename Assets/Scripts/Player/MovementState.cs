@@ -7,6 +7,7 @@ public class MovementState : IState
     protected const string KeyAttack = "Fire1";
 
     protected readonly IStateSwitcher StateSwitcher;
+
     private readonly Player _playerMove;
     private float _radiusCheckGround = 0.1f;
     private int _damageEnemy = 20;
@@ -16,13 +17,13 @@ public class MovementState : IState
     private bool _jump;
     private bool _attack;
 
+    protected CharacterView View => _playerMove.View;
+
     public MovementState(IStateSwitcher stateSwitcher, Player playerMove)
     {
         StateSwitcher = stateSwitcher;
         _playerMove = playerMove;
     }
-
-    protected CharacterView View => _playerMove.View;
 
     public virtual void FixedUpdate()
     {
@@ -51,6 +52,17 @@ public class MovementState : IState
         _attack = Input.GetButton(KeyAttack);
     }
 
+    public virtual void Enter() { }
+
+    public virtual void Exit() { }
+
+    public bool CheckGround()
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(_playerMove.transform.position, _radiusCheckGround);
+
+        return colliders.Length > 1;
+    }
+
     private void Jump()
     {
         StateSwitcher.SwitchState<JumpingState>();
@@ -69,15 +81,4 @@ public class MovementState : IState
 
         _playerMove.PlayerSprite.flipX = direction.x < 0.0f;
     }
-
-    public bool CheckGround()
-    {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(_playerMove.transform.position, _radiusCheckGround);
-
-        return colliders.Length > 1;
-    }
-
-    public virtual void Enter() { }
-
-    public virtual void Exit() { }
 }

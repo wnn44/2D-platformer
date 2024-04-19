@@ -6,6 +6,8 @@ public class Bar : MonoBehaviour
 {
     private Health _health;
 
+    public virtual void Display() { }
+
     protected Health Health => _health;
 
     private void OnEnable()
@@ -22,6 +24,4 @@ public class Bar : MonoBehaviour
     {
         _health = GetComponent<Health>();
     }
-
-    public virtual void Display() { }
 }

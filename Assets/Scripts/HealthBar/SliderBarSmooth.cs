@@ -5,16 +5,20 @@ using UnityEngine.UI;
 public class SliderBarSmooth : Bar
 {
     [SerializeField] private Slider _slider;
-    [SerializeField] private float _maxDelta;
 
     private float _curentHealth;
+
+    public override void Display()
+    {
+        StartCoroutine(BarSmooth());
+    }
 
     private void Start()
     {
         Display();
     }
 
-    private IEnumerator _barSmooth()
+    private IEnumerator BarSmooth()
     {   
         WaitForSeconds waitForSeconds = new WaitForSeconds(Time.deltaTime);
 
@@ -26,10 +30,5 @@ public class SliderBarSmooth : Bar
 
             _slider.value = Mathf.MoveTowards(_slider.value, _curentHealth, Time.deltaTime);
         }
-    }
-
-    public override void Display()
-    {
-        StartCoroutine(_barSmooth());
     }
 }

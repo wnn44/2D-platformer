@@ -9,18 +9,6 @@ public class Health : MonoBehaviour
     public event Action Changed;
     public event Action Died;
 
-    private void CurrentValueChanged()
-    {
-        _curentValue = Mathf.Clamp(_curentValue, 0, _maxValue);
-
-        Changed?.Invoke();
-
-        if (_curentValue == 0)
-        {
-            Died?.Invoke();
-        }
-    }
-
     public float MaxValue => _maxValue;
     public float CurentValue => _curentValue;
 
@@ -38,5 +26,17 @@ public class Health : MonoBehaviour
             _curentValue += healValue;
 
         CurrentValueChanged();
+    }
+
+    private void CurrentValueChanged()
+    {
+        _curentValue = Mathf.Clamp(_curentValue, 0, _maxValue);
+
+        Changed?.Invoke();
+
+        if (_curentValue == 0)
+        {
+            Died?.Invoke();
+        }
     }
 }

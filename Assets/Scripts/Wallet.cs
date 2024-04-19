@@ -7,16 +7,6 @@ public class Wallet : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _textWalletView;
     [SerializeField] private CollisionDetector _collisionDetector;
 
-    private void OnEnable()
-    {
-        _collisionDetector.OnCollisionDetectedCoin += AddOne;
-    }
-
-    private void OnDisable()
-    {
-        _collisionDetector.OnCollisionDetectedCoin -= AddOne;
-    }
-
     public void AddOne(Coin coin)
     {
         if (coin != null)
@@ -25,5 +15,15 @@ public class Wallet : MonoBehaviour
         }
 
         _textWalletView.text = _numberOfCoins.ToString();
+    }
+
+    private void OnEnable()
+    {
+        _collisionDetector.OnCollisionDetectedCoin += AddOne;
+    }
+
+    private void OnDisable()
+    {
+        _collisionDetector.OnCollisionDetectedCoin -= AddOne;
     }
 }
