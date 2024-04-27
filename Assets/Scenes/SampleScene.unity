@@ -1615,6 +1615,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4616987315289735149, guid: 23c0dceb502325440a10fc080a302263, type: 3}
+      propertyPath: _sprite
+      value: 
+      objectReference: {fileID: 1629758428}
+    - target: {fileID: 4616987315289735149, guid: 23c0dceb502325440a10fc080a302263, type: 3}
       propertyPath: _enemyAttack
       value: 
       objectReference: {fileID: 1023705802}
@@ -1764,6 +1768,17 @@ Transform:
   - {fileID: 1964942252}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1083387198 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7264292191575148111, guid: 23c0dceb502325440a10fc080a302263, type: 3}
+  m_PrefabInstance: {fileID: 1688195414}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2947c611bff90f64ba3f9a035e679da1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1091376155
 GameObject:
   m_ObjectHideFlags: 0
@@ -2983,6 +2998,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1629758428 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7264292191575148111, guid: 23c0dceb502325440a10fc080a302263, type: 3}
+  m_PrefabInstance: {fileID: 1006802111}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2947c611bff90f64ba3f9a035e679da1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1661639785
 GameObject:
   m_ObjectHideFlags: 0
@@ -3052,6 +3078,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4616987315289735149, guid: 23c0dceb502325440a10fc080a302263, type: 3}
+      propertyPath: _sprite
+      value: 
+      objectReference: {fileID: 1083387198}
     - target: {fileID: 4616987315289735149, guid: 23c0dceb502325440a10fc080a302263, type: 3}
       propertyPath: _enemyAttack
       value: 

@@ -4,7 +4,7 @@ public class EnemyMove : MonoBehaviour
 {
     [SerializeField] private float _baseSpeed;
     [SerializeField] private LayerMask _platformLayer;
-    [SerializeField] private GameObject _sprite;
+    [SerializeField] private EnemySprite _sprite;
     [SerializeField] private EnemyAttack _enemyAttack;
 
     private float _angleRotationY = 180;
