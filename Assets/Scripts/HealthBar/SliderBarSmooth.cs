@@ -8,14 +8,14 @@ public class SliderBarSmooth : Bar
 
     private float _curentHealth;
 
-    public override void Display()
-    {
-        StartCoroutine(BarSmooth());
-    }
-
     private void Start()
     {
         Display();
+    }
+
+    public override void Display()
+    {
+        StartCoroutine(BarSmooth());
     }
 
     private IEnumerator BarSmooth()

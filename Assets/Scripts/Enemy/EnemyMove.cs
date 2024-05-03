@@ -12,18 +12,6 @@ public class EnemyMove : MonoBehaviour
 
     public Vector3 Direction { get; private set; }
 
-    public void StopMove()
-    {
-        float minSpeed = 0.01f;
-
-        _speed = minSpeed;
-    }
-
-    public void StartMove()
-    {
-        _speed = _baseSpeed;
-    }
-
     private void Start()
     {
         Direction = transform.right;
@@ -34,6 +22,36 @@ public class EnemyMove : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.TryGetComponent(out TileMap tileMap))
+        {
+            ChangeDirection();
+        }
+    }
+
+    private void OnEnable()
+    {
+        _enemyAttack.OnCollision += StopMove;
+    }
+
+    private void OnDisable()
+    {
+        _enemyAttack.OnCollision -= StopMove;
+    }
+
+    public void StartMove()
+    {
+        _speed = _baseSpeed;
+    }
+
+    public void StopMove()
+    {
+        float minSpeed = 0.01f;
+
+        _speed = minSpeed;
     }
 
     private void Move()
@@ -56,29 +74,11 @@ public class EnemyMove : MonoBehaviour
         return (hit.collider != null);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.TryGetComponent(out TileMap tileMap))
-        {
-            ChangeDirection();
-        }
-    }
-
     private void ChangeDirection()
     {
         int reverseDirection = -1;
         Direction *= reverseDirection;
 
         _sprite.transform.Rotate(0, _angleRotationY, 0);
-    }
-
-    private void OnEnable()
-    {
-        _enemyAttack.OnCollision += StopMove;
-    }
-
-    private void OnDisable()
-    {
-        _enemyAttack.OnCollision -= StopMove;
     }
 }

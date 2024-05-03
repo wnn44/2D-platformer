@@ -6,6 +6,10 @@ public class StateMachine: IStateSwitcher
     private List<IState> _states;  
     private IState _currentState;
 
+    public void FixedUpdate() => _currentState.FixedUpdate();
+
+    public void Update() => _currentState.Update();
+
     public StateMachine(Player playerMove)
     {
         _states = new List<IState>() 
@@ -28,8 +32,4 @@ public class StateMachine: IStateSwitcher
             _currentState = state;
             _currentState.Enter();
     }
-
-    public void FixedUpdate() => _currentState.FixedUpdate();
-
-    public void Update() => _currentState.Update();
 }

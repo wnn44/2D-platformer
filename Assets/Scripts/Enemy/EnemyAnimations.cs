@@ -9,9 +9,9 @@ public class EnemyAnimations : MonoBehaviour
 
     private Animator _animation;
 
-    public void Attack()
+    private void Start()
     {
-        _animation.SetInteger(NameParametrAnimation, AttackState);
+        _animation = GetComponent<Animator>();
     }
 
     public void Run()
@@ -19,8 +19,8 @@ public class EnemyAnimations : MonoBehaviour
         _animation.SetInteger(NameParametrAnimation, RunState);
     }
 
-    private void Start()
+    public void Attack()
     {
-        _animation = GetComponent<Animator>();
+        _animation.SetInteger(NameParametrAnimation, AttackState);
     }
 }

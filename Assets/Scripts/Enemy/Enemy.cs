@@ -6,11 +6,6 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private Health _enemyHealth;
 
-    public void Damage(int damage)
-    {
-        _enemyHealth.TakeDamage(damage);
-    }
-
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -25,6 +20,11 @@ public class Enemy : MonoBehaviour
     private void OnDisable()
     {
         _enemyHealth.Died -= HealthZero;
+    }
+
+    public void Damage(int damage)
+    {
+        _enemyHealth.TakeDamage(damage);
     }
 
     private void HealthZero()

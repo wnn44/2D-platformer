@@ -22,11 +22,6 @@ public class Player : MonoBehaviour
     private Health _playerHealth;
     private int _damageEnemy;
 
-    public void DamageEnemy(int damageEnemy)
-    {
-        _damageEnemy = damageEnemy;
-    }
-
     private void Awake()
     {
         _view.Initialize();
@@ -50,6 +45,18 @@ public class Player : MonoBehaviour
         _stateMachine.Update();
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<Enemy>())
+        {
+            Enemy enemy = GameObject.Find(collision.name).GetComponent<Enemy>();
+
+            enemy.Damage(_damageEnemy);
+
+            _damageEnemy = 0;
+        }
+    }
+
     private void OnEnable()
     {
         _enemyAttack.OnAttack += Damage;
@@ -62,6 +69,11 @@ public class Player : MonoBehaviour
         _enemyAttack.OnAttack -= Damage;
         _collisionDetector.OnCollisionDetectedKitHealth -= Heal;
         _playerHealth.Died -= HealthZero;
+    }
+
+    public void DamageEnemy(int damageEnemy)
+    {
+        _damageEnemy = damageEnemy;
     }
 
     private void HealthZero()
@@ -80,18 +92,6 @@ public class Player : MonoBehaviour
     private void Heal(KitHealth healValue)
     {
         _playerHealth.TakeHeal(healValue.HealValue);
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.GetComponent<Enemy>())
-        {
-            Enemy enemy = GameObject.Find(collision.name).GetComponent<Enemy>();
-
-            enemy.Damage(_damageEnemy);
-
-            _damageEnemy = 0;
-        }
     }
 }
 
