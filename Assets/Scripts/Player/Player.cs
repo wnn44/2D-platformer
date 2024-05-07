@@ -59,14 +59,14 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
-        _enemyAttack.OnAttack += Damage;
+        EnemyAttack.OnAttack += Damage;
         _collisionDetector.OnCollisionDetectedKitHealth += Heal;
         _playerHealth.Died += HealthZero;
     }
 
     private void OnDisable()
     {
-        _enemyAttack.OnAttack -= Damage;
+        EnemyAttack.OnAttack -= Damage;
         _collisionDetector.OnCollisionDetectedKitHealth -= Heal;
         _playerHealth.Died -= HealthZero;
     }

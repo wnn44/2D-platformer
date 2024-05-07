@@ -4,9 +4,9 @@ using UnityEngine;
 [RequireComponent(typeof(EnemyAnimations))]
 public class EnemyAttack : MonoBehaviour
 {
-    private int _damage = 1 ;
+   [SerializeField] private int _damage = 1 ;
 
-    public event Action<int> OnAttack;
+    public static event Action<int> OnAttack;
     public event Action OnCollision;
 
     private EnemyAnimations _enemyAnimations;
