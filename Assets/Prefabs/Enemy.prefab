@@ -184,6 +184,7 @@ GameObject:
   - component: {fileID: 4683564232209935018}
   - component: {fileID: 3040902169216907458}
   - component: {fileID: 7079912089984322576}
+  - component: {fileID: -4731448577622826252}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -284,7 +285,7 @@ MonoBehaviour:
   _platformLayer:
     serializedVersion: 2
     m_Bits: 8
-  _sprite: {fileID: 9100604786207437989}
+  _sprite: {fileID: 7264292191575148111}
   _enemyAttack: {fileID: -4639463167219541514}
 --- !u!61 &7052474371019094407
 BoxCollider2D:
@@ -343,6 +344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cada7cd9715ad540815134c3fe604f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damage: 1
 --- !u!114 &2826873814608349913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -439,6 +441,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 1216635818830177762}
+--- !u!114 &-4731448577622826252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3655790206342517661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee43cea758660c549a209b91d61b1fd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 0}
 --- !u!1 &4448225172381635694
 GameObject:
   m_ObjectHideFlags: 0
