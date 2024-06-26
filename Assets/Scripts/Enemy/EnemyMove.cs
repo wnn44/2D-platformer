@@ -6,6 +6,7 @@ public class EnemyMove : MonoBehaviour
     [SerializeField] private LayerMask _platformLayer;
     [SerializeField] private EnemySprite _sprite;
     [SerializeField] private EnemyAttack _enemyAttack;
+    [SerializeField] private PlayerSearch _playerSearch;
 
     private float _angleRotationY = 180;
     private float _speed;
@@ -35,11 +36,13 @@ public class EnemyMove : MonoBehaviour
     private void OnEnable()
     {
         _enemyAttack.OnCollision += StopMove;
+        _playerSearch.OnPlayer += GoToPlayer;
     }
 
     private void OnDisable()
     {
         _enemyAttack.OnCollision -= StopMove;
+        _playerSearch.OnPlayer -= GoToPlayer;
     }
 
     public void StartMove()
@@ -54,14 +57,27 @@ public class EnemyMove : MonoBehaviour
         _speed = minSpeed;
     }
 
-    private void Move()
+    public void GoToPlayer(bool onPlayer)
     {
-        if (!CheckingEndOfPath())
+        if (!CheckingEndOfPath() && onPlayer)
+        {
+            StopMove();
+        }
+
+        if (!onPlayer)
+        {
+            StartMove();
+        }
+
+        if (!CheckingEndOfPath() && !onPlayer)
         {
             ChangeDirection();
         }
+    }
 
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + Direction, _speed * Time.deltaTime);
+    private void Move()
+    {
+          transform.position = Vector3.MoveTowards(transform.position, transform.position + Direction, _speed * Time.deltaTime);
     }
 
     private bool CheckingEndOfPath()

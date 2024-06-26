@@ -1,9 +1,12 @@
+using System;
 using UnityEngine;
 
 public class PlayerSearch : MonoBehaviour
 {
     [SerializeField] private Player _player;
     [SerializeField] private float _distance;
+
+    public event Action<bool> OnPlayer;
 
     private EnemyMove _enemyMove;
 
@@ -21,7 +24,7 @@ public class PlayerSearch : MonoBehaviour
     private void DetectionPlayer()
     {
         Vector2 ray = transform.position;
-        Vector2 direction = transform.TransformDirection( _enemyMove.Direction);
+        Vector2 direction = transform.TransformDirection(_enemyMove.Direction);
 
         RaycastHit2D hit = Physics2D.Raycast(ray, direction, _distance);
 
@@ -29,7 +32,11 @@ public class PlayerSearch : MonoBehaviour
 
         if (hit.collider != null && hit.collider.gameObject == _player.gameObject)
         {
-                Debug.Log(hit.collider.gameObject);
+            OnPlayer?.Invoke(true);
+        }
+        else
+        {
+            OnPlayer?.Invoke(false);
         }
     }
 }
