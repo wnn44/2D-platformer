@@ -47,10 +47,8 @@ public class Player : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<Enemy>())
+        if(collision.gameObject.TryGetComponent(out Enemy enemy))
         {
-            Enemy enemy = GameObject.Find(collision.name).GetComponent<Enemy>();
-
             enemy.Damage(_damageEnemy);
 
             _damageEnemy = 0;
@@ -59,14 +57,14 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
-        EnemyAttack.OnAttack += Damage;
+        _enemyAttack.Attack += Damage;
         _collisionDetector.OnCollisionDetectedKitHealth += Heal;
         _playerHealth.Died += HealthZero;
     }
 
     private void OnDisable()
     {
-        EnemyAttack.OnAttack -= Damage;
+        _enemyAttack.Attack -= Damage;
         _collisionDetector.OnCollisionDetectedKitHealth -= Heal;
         _playerHealth.Died -= HealthZero;
     }

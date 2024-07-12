@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+[RequireComponent(typeof(EnemyMove))]
 public class PlayerSearch : MonoBehaviour
 {
     [SerializeField] private Player _player;
@@ -18,10 +19,10 @@ public class PlayerSearch : MonoBehaviour
 
     private void FixedUpdate()
     {
-        DetectionPlayer();
+        DetectPlayer();
     }
 
-    private void DetectionPlayer()
+    private void DetectPlayer()
     {
         Vector2 ray = transform.position;
         Vector2 direction = transform.TransformDirection(_enemyMove.Direction);
@@ -30,13 +31,6 @@ public class PlayerSearch : MonoBehaviour
 
         Debug.DrawRay(ray, direction * _distance, Color.red);
 
-        if (hit.collider != null && hit.collider.gameObject == _player.gameObject)
-        {
-            OnPlayer?.Invoke(true);
-        }
-        else
-        {
-            OnPlayer?.Invoke(false);
-        }
+        OnPlayer?.Invoke(hit.collider != null && hit.collider.gameObject == _player.gameObject);
     }
 }

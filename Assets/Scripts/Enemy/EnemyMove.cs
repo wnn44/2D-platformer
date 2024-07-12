@@ -35,13 +35,13 @@ public class EnemyMove : MonoBehaviour
 
     private void OnEnable()
     {
-        _enemyAttack.OnCollision += StopMove;
+        _enemyAttack.Collision += StopMove;
         _playerSearch.OnPlayer += GoToPlayer;
     }
 
     private void OnDisable()
     {
-        _enemyAttack.OnCollision -= StopMove;
+        _enemyAttack.Collision -= StopMove;
         _playerSearch.OnPlayer -= GoToPlayer;
     }
 
