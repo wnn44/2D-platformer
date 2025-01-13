@@ -9,8 +9,9 @@ public class Player : MonoBehaviour
     [SerializeField] private CharacterView _view;
     [SerializeField] private CollisionDetector _collisionDetector;
     [SerializeField] private EnemyAttack _enemyAttack;
+    [SerializeField] private Vampirism _vampirism;
 
-    public CharacterView View => _view;
+  public CharacterView View => _view;
     public float Speed => _speedMove;
     public float JampForce => _jampForce;
     public Rigidbody2D Rigidbody => _playerRigidbody;
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour
     private StateMachine _stateMachine;
     private Health _playerHealth;
     private int _damageEnemy;
+    private bool _activateVampirism;
 
     private void Awake()
     {
@@ -38,11 +40,16 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         _stateMachine.FixedUpdate();
+
+        if (_activateVampirism)
+            Vampirism();
     }
 
     private void Update()
     {
-        _stateMachine.Update();
+         _stateMachine.Update();
+
+        _activateVampirism = Input.GetKey(KeyCode.N);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -90,6 +97,14 @@ public class Player : MonoBehaviour
     private void Heal(KitHealth healValue)
     {
         _playerHealth.TakeHeal(healValue.HealValue);
+    }
+    
+    private void Vampirism()
+    {
+
+        _vampirism.ViewSprite();
+
+
     }
 }
 
