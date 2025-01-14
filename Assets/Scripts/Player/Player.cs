@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] private EnemyAttack _enemyAttack;
     [SerializeField] private Vampirism _vampirism;
 
-  public CharacterView View => _view;
+    public CharacterView View => _view;
     public float Speed => _speedMove;
     public float JampForce => _jampForce;
     public Rigidbody2D Rigidbody => _playerRigidbody;
@@ -101,10 +101,7 @@ public class Player : MonoBehaviour
     
     private void Vampirism()
     {
-
         _vampirism.ViewSprite();
-
-
     }
 }
 
