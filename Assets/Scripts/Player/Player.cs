@@ -101,7 +101,7 @@ public class Player : MonoBehaviour
     
     private void Vampirism()
     {
-        _vampirism.ViewSprite();
+        _vampirism.OpenVampirism();
     }
 }
 
