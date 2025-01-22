@@ -16,9 +16,20 @@ public class Vampirism : MonoBehaviour
     private bool _abilityActive = true;
     private bool _damageActivity = false;
 
+    private InputReader _inputReader;
+
     void Start()
     {
         _playerHealth = GetComponent<Health>();
+        _inputReader = GetComponent<InputReader>();
+    }
+
+    private void FixedUpdate()
+    {
+        if (_inputReader.GetIsVampirism())
+        {
+            OpenVampirism();
+        }            
     }
 
     public void OpenVampirism()

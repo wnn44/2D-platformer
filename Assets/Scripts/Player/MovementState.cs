@@ -33,8 +33,12 @@ public class MovementState : IState
         if (_horizontal)
             Run();
 
-        if (CheckGround() && _jump)
+        if (_jump)
+        {
             Jump();
+
+            _jump = false;
+        }
 
         if (_attack && _horizontal == false)
         {
@@ -48,8 +52,12 @@ public class MovementState : IState
     {
         _horizontalDirection = Input.GetAxis(AxesHorizontal);
         _horizontal = Input.GetButton(AxesHorizontal);
-        _jump = Input.GetButton(AxesJump);
         _attack = Input.GetButton(KeyAttack);
+
+        if (CheckGround() && Input.GetButton(AxesJump))
+        {
+            _jump = true;
+        }
     }
 
     public virtual void Enter() { }
