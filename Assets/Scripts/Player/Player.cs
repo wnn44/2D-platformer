@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
     [SerializeField] private CharacterView _view;
     [SerializeField] private CollisionDetector _collisionDetector;
     [SerializeField] private EnemyAttack _enemyAttack;
-    [SerializeField] private Vampirism _vampirism;
 
     public CharacterView View => _view;
     public float Speed => _speedMove;

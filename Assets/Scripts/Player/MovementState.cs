@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class MovementState : IState
@@ -5,10 +6,12 @@ public class MovementState : IState
     protected const string AxesHorizontal = "Horizontal";
     protected const string AxesJump = "Jump";
     protected const string KeyAttack = "Fire1";
+    protected const KeyCode KeyVampirizm = KeyCode.N;
 
     protected readonly IStateSwitcher StateSwitcher;
 
     private readonly Player _playerMove;
+    private Vampirism _vampirism;
     private float _radiusCheckGround = 0.1f;
     private int _damageEnemy = 20;
 
@@ -16,6 +19,9 @@ public class MovementState : IState
     private bool _horizontal;
     private bool _jump;
     private bool _attack;
+    private bool _activateVampirism;
+
+    public static event Action ActionVampirism;
 
     protected CharacterView View => _playerMove.View;
 
@@ -46,6 +52,13 @@ public class MovementState : IState
 
             _playerMove.DamageEnemy(_damageEnemy);
         }
+
+        if (_activateVampirism)
+        {
+            ActionVampirism?.Invoke();
+
+            _activateVampirism = false;
+        }
     }
 
     public virtual void Update()
@@ -57,6 +70,11 @@ public class MovementState : IState
         if (CheckGround() && Input.GetButton(AxesJump))
         {
             _jump = true;
+        }
+
+        if (Input.GetKeyDown(KeyVampirizm))
+        {
+            _activateVampirism = true;
         }
     }
 

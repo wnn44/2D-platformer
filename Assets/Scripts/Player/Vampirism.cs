@@ -12,27 +12,26 @@ public class Vampirism : MonoBehaviour
     private Health _playerHealth;
     private float _timeAction = 6.0f;
     private float _timeCharge = 4.0f;
-    private int _damageEnemy = 1;
+    private int _damage = 1;
     private bool _abilityActive = true;
     private bool _damageActivity = false;
 
-    private InputReader _inputReader;
+    private void OnEnable()
+    {
+        MovementState.ActionVampirism += ActiveVampirizm;
+    }
 
-    void Start()
+    private void OnDisable()
+    {
+        MovementState.ActionVampirism -= ActiveVampirizm;
+    }
+
+    private void Start()
     {
         _playerHealth = GetComponent<Health>();
-        _inputReader = GetComponent<InputReader>();
     }
 
-    private void FixedUpdate()
-    {
-        if (_inputReader.GetIsVampirism())
-        {
-            OpenVampirism();
-        }            
-    }
-
-    public void OpenVampirism()
+    public void ActiveVampirizm()
     {
         if (_abilityActive)
         {
@@ -88,8 +87,8 @@ public class Vampirism : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out Enemy enemy) & _damageActivity)
         {
-            enemy.Damage(_damageEnemy);
-            _playerHealth.TakeHeal(_damageEnemy);
+            enemy.Damage(_damage);
+            _playerHealth.TakeHeal(_damage);
         }
     }
 
