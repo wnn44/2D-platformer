@@ -3,6 +3,8 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
+[RequireComponent(typeof(Health))]
+
 public class Vampirism : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _chargeVampirizm;

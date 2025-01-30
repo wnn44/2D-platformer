@@ -2241,6 +2241,7 @@ MonoBehaviour:
   _view: {fileID: 1091376172}
   _collisionDetector: {fileID: 1091376170}
   _enemyAttack: {fileID: 1023705802}
+  _playerSprite: {fileID: 324023721}
 --- !u!114 &1091376172
 MonoBehaviour:
   m_ObjectHideFlags: 0

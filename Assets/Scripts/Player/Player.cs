@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] private CharacterView _view;
     [SerializeField] private CollisionDetector _collisionDetector;
     [SerializeField] private EnemyAttack _enemyAttack;
+    [SerializeField] private SpriteRenderer _playerSprite;
 
     public CharacterView View => _view;
     public float Speed => _speedMove;
@@ -16,7 +17,6 @@ public class Player : MonoBehaviour
     public Rigidbody2D Rigidbody => _playerRigidbody;
     public SpriteRenderer PlayerSprite => _playerSprite;
 
-    private SpriteRenderer _playerSprite;
     private Rigidbody2D _playerRigidbody;
     private StateMachine _stateMachine;
     private Health _playerHealth;
@@ -27,8 +27,6 @@ public class Player : MonoBehaviour
         _view.Initialize();
 
         _playerRigidbody = transform.GetComponent<Rigidbody2D>();
-
-        _playerSprite = GetComponentInChildren<SpriteRenderer>();
 
         _playerHealth = GetComponent<Health>();
 

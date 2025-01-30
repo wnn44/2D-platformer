@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class InputReader : MonoBehaviour
+public class InputReader: MonoBehaviour
 {
     private bool _activateVampirism;
 
