@@ -1,15 +1,15 @@
 using System;
 using System.Collections;
-using TMPro;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Health))]
 
 public class Vampirism : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI _chargeVampirizm;
-
-    public GameObject Sprite;
+    [SerializeField] private GameObject Sprite;
+    [SerializeField] private Slider _slider;
 
     private Health _playerHealth;
     private float _timeAction = 6.0f;
@@ -33,7 +33,7 @@ public class Vampirism : MonoBehaviour
         _playerHealth = GetComponent<Health>();
     }
 
-    public void ActiveVampirizm()
+    private void ActiveVampirizm()
     {
         if (_abilityActive)
         {
@@ -42,11 +42,11 @@ public class Vampirism : MonoBehaviour
             _abilityActive = false;
             _damageActivity = true;
 
-            StartCoroutine(StartVampirism());
+            StartCoroutine(WorksVampirism());
         }
     }
 
-    public IEnumerator StartVampirism()
+    private IEnumerator WorksVampirism()
     {
         float elapsedTime = 0f;
 
@@ -61,7 +61,7 @@ public class Vampirism : MonoBehaviour
         StopVampirism();
     }
 
-    public IEnumerator ChargeVampirism()
+    private IEnumerator ChargeVampirism()
     {
         float elapsedTime = 0f;
 
@@ -87,15 +87,42 @@ public class Vampirism : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out Enemy enemy) & _damageActivity)
+        if (_damageActivity && collision.gameObject.TryGetComponent(out Enemy enemy))
         {
-            enemy.Damage(_damage);
-            _playerHealth.TakeHeal(_damage);
-        }
+            if (enemy == FindClosestEnemy())
+            {
+                enemy.Damage(_damage);
+                _playerHealth.TakeHeal(_damage);
+            }
+        }        
     }
 
     private void ViewCharge(float elapsedTime, float fullTime)
     {
-        _chargeVampirizm.text = "V " + Math.Round((fullTime - elapsedTime) / (fullTime / 100)) + "%";
+        _slider.value = ((float)(Math.Round((fullTime - elapsedTime) / (fullTime / 100)))/100);
+    }
+
+    private Enemy FindClosestEnemy()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+         if (enemies.Length == 0)
+        {
+            return null;
+        }
+
+        Enemy closest;
+
+        if (enemies.Length == 1)
+        {
+            closest = enemies[0].GetComponent<Enemy>();
+            return closest;
+        }
+
+        closest = enemies
+            .OrderBy(go => (gameObject.transform.position - go.transform.position).sqrMagnitude)
+            .First().GetComponent<Enemy>();
+
+        return closest;
     }
 }

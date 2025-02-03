@@ -33,6 +33,20 @@ public class Player : MonoBehaviour
         _stateMachine = new StateMachine(this);
     }
 
+    private void OnEnable()
+    {
+        _enemyAttack.Attack += Damage;
+        _collisionDetector.OnCollisionDetectedKitHealth += Heal;
+        _playerHealth.Died += HealthZero;
+    }
+
+    private void OnDisable()
+    {
+        _enemyAttack.Attack -= Damage;
+        _collisionDetector.OnCollisionDetectedKitHealth -= Heal;
+        _playerHealth.Died -= HealthZero;
+    }
+
     private void FixedUpdate()
     {
         _stateMachine.FixedUpdate();
@@ -51,20 +65,6 @@ public class Player : MonoBehaviour
 
             _damageEnemy = 0;
         }
-    }
-
-    private void OnEnable()
-    {
-        _enemyAttack.Attack += Damage;
-        _collisionDetector.OnCollisionDetectedKitHealth += Heal;
-        _playerHealth.Died += HealthZero;
-    }
-
-    private void OnDisable()
-    {
-        _enemyAttack.Attack -= Damage;
-        _collisionDetector.OnCollisionDetectedKitHealth -= Heal;
-        _playerHealth.Died -= HealthZero;
     }
 
     public void DamageEnemy(int damageEnemy)

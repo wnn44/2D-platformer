@@ -6,16 +6,16 @@ public class MovementState : IState
     protected const string AxesHorizontal = "Horizontal";
     protected const string AxesJump = "Jump";
     protected const string KeyAttack = "Fire1";
+    protected const string NameGroundLayerMask = "Platform";
     protected const KeyCode KeyVampirizm = KeyCode.N;
 
     protected readonly IStateSwitcher StateSwitcher;
 
     private readonly Player _playerMove;
-    private Vampirism _vampirism;
     private float _radiusCheckGround = 0.1f;
     private int _damageEnemy = 20;
-
     private float _horizontalDirection;
+    private LayerMask _groundLayerMask;
     private bool _horizontal;
     private bool _jump;
     private bool _attack;
@@ -84,7 +84,12 @@ public class MovementState : IState
 
     public bool CheckGround()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(_playerMove.transform.position, _radiusCheckGround);
+        if (_groundLayerMask == 0)
+        {
+            _groundLayerMask = 1 << LayerMask.NameToLayer(NameGroundLayerMask);
+        }       
+
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(_playerMove.transform.position, _radiusCheckGround, _groundLayerMask);
 
         return colliders.Length > 1;
     }
